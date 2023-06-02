@@ -7,6 +7,8 @@ if (isset($_SESSION["login_pelamar"])) {
   header("Location: perusahaan/index.php");
   exit;
 }
+
+require 'functions.php';
 ?>
 
 <?php $title = 'Login' ?>

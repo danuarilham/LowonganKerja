@@ -34,10 +34,11 @@ if (isset($_POST['register_pelamar'])) {
   <div class="container">
     <div class="row">
       <div class="col-md-7 mt-10 mb-10">
-        <h1 class="text-black font-weight-bold">Registrasi</h1>
+        <h1 class="text-black font-weight-bold">Registrasi Pencari Kerja</h1>
         <div class="custom-breadcrumbs">
-          <a href="#"><span style="color: black;">Home</span></a> <span class="mx-2 slash">/</span>
-          <span class="text-black"><strong>Registrasi</strong></span>
+          <a href="index.php"><span style="color: black;">Home</span></a> <span class="mx-2 slash">/</span>
+          <a href="register.php"><span style="color: black;">Registrasi</span></a> <span class="mx-2 slash">/</span>
+          <span class="text-black"><strong>Registrasi Pencari Kerja</strong></span>
         </div>
       </div>
     </div>

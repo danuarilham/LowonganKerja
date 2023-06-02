@@ -38,10 +38,11 @@ $lokasi = query("SELECT * FROM lokasi_pekerjaan");
   <div class="container">
     <div class="row">
       <div class="col-md-7 mt-10 mb-10">
-        <h1 class="text-black font-weight-bold">Registrasi</h1>
+        <h1 class="text-black font-weight-bold">Registrasi Perusahaan</h1>
         <div class="custom-breadcrumbs">
-          <a href="#"><span style="color: black;">Home</span></a> <span class="mx-2 slash">/</span>
-          <span class="text-black"><strong>Registrasi</strong></span>
+          <a href="index.php"><span style="color: black;">Home</span></a> <span class="mx-2 slash">/</span>
+          <a href="register.php"><span style="color: black;">Registrasi</span></a> <span class="mx-2 slash">/</span>
+          <span class="text-black"><strong>Registrasi Perusahaan</strong></span>
         </div>
       </div>
     </div>
@@ -112,10 +113,9 @@ $lokasi = query("SELECT * FROM lokasi_pekerjaan");
           </div>
           <div class="row form-group">
             <div class="col-md-12">
-              <input type="submit" name="register_perusahaan" class="btn px-4 btn-primary text-white" required>
+              <input type="submit" name="register_perusahaan" value="Register" class="btn px-4 btn-primary text-white" required>
             </div>
           </div>
-
         </form>
       </div>
     </div>
