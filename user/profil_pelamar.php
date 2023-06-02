@@ -60,11 +60,11 @@ $info = query("SELECT * FROM pelamar WHERE id_pelamar = $id_pelamar")[0];
                 <img src="../upload/user/foto/<?= $info['foto_pelamar'] ?>" class=" mb-3 img-responsive center-block d-block img-thumbnail" style="width: 170px;" alt="Avatar" />
               </div>
 
-              <table class="table table-hover table-sm">
+              <table class="table table-sm w-75">
                 <tbody>
                   <tr>
                     <th scope="row">Nama Lengkap</th>
-                    <td class="w-75" <?php echo ($info['nama_pelamar'] == "") ? "class='table-danger'" : "" ?>><?= $info['nama_pelamar'] ?></td>
+                    <td <?php echo ($info['nama_pelamar'] == "") ? "class='table-danger'" : "" ?>><?= $info['nama_pelamar'] ?></td>
                   </tr>
 
                   <tr>

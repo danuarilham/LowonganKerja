@@ -158,7 +158,6 @@ if (isset($_POST['update_profil_pelamar'])) {
           <!-- foto pelamar -->
           <div class="col-md-12 mb-3 mb-3">
             <label class="text-black" for="foto_pelamar">Foto Profil (maks. 1 MB)<span style="color:red"> *</span></label>
-            <img src="../upload/user/foto/<?= $info['foto_pelamar'] ?> " class=" mb-3 img-responsive center-block d-block img-thumbnail" style="width: 80px;" alt="foto_profil">
             <input type="file" id="foto_pelamar" accept="image/png, image/jpeg, image/jpg" class="form-control-file" name="gambar">
           </div>
 

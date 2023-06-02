@@ -1,78 +1,68 @@
+<?php
+$jumlahLoker = count(query("SELECT id_pekerjaan FROM info_pekerjaan"));
+$jumlahPelamar = count(query("SELECT id_pelamar FROM pelamar"));
+$jumlahPerusahaan = count(query("SELECT id_perusahaan FROM perusahaan"));
+
+?>
+
 <footer>
     <!-- Footer Start-->
     <div class="footer-area footer-bg footer-padding">
         <div class="container">
             <div class="row d-flex justify-content-between">
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                <div class="col-xl-6 col-lg-3 col-md-4 col-sm-6">
                     <div class="single-footer-caption mb-50">
                         <div class="single-footer-caption mb-30">
                             <div class="footer-tittle">
-                                <h4>About Us</h4>
+                                <h4>Tentang Kami</h4>
                                 <div class="footer-pera">
-                                    <p>Heaven frucvitful doesn't cover lesser dvsays appear creeping seasons so behold.</p>
+                                    <p>Kami adalah platform yang bertujuan untuk memudahkan pencarian pekerjaan di Bandung. Dengan visi kami untuk menciptakan kesempatan kerja yang lebih baik bagi masyarakat, kami menyediakan berbagai lowongan pekerjaan menarik dari perusahaan-perusahaan terkemuka di Bandung dan sekitarnya.</p>
                                 </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                <div class="col-xl-6 col-lg-3 col-md-4 col-sm-5">
                     <div class="single-footer-caption mb-50">
                         <div class="footer-tittle">
-                            <h4>Contact Info</h4>
+                            <h4>Info Kontak</h4>
                             <ul>
                                 <li>
-                                    <p>Address :Your address goes
-                                        here, your demo address.</p>
+                                    <p>Alamat : Jl. Dr. Setiabudhi No. 229 Bandung 40154. Jawa Barat - Indonesia</p>
                                 </li>
-                                <li><a href="#">Phone : +8880 44338899</a></li>
-                                <li><a href="#">Email : info@colorlib.com</a></li>
+                                <li><a href="#">Telepon : +62 81233456789</a></li>
+                                <li><a href="#">Email : ingfoloker@upi.edu</a></li>
                             </ul>
                         </div>
 
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
-                    <div class="single-footer-caption mb-50">
-                        <div class="footer-tittle">
-                            <h4>Important Link</h4>
-                            <ul>
-                                <li><a href="#"> View Project</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Testimonial</a></li>
-                                <li><a href="#">Proparties</a></li>
-                                <li><a href="#">Support</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-            <!--  -->
             <div class="row footer-wejed justify-content-between">
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                     <!-- logo -->
                     <div class="footer-logo mb-20">
-                        <a href="index.php"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                        <a href="index.php"><img src="assets/img/logo/logo2.png" alt="" width="200" class="rounded"></a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                     <div class="footer-tittle-bottom">
-                        <span>5000+</span>
-                        <p>Talented Hunter</p>
+                        <span><?= $jumlahLoker - 1 ?>+</span>
+                        <p>Lowongan Pekerjaan</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                     <div class="footer-tittle-bottom">
-                        <span>451</span>
-                        <p>Talented Hunter</p>
+                        <span><?= $jumlahPelamar ?></span>
+                        <p>Pencari Kerja Terdaftar</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                     <!-- Footer Bottom Tittle -->
                     <div class="footer-tittle-bottom">
-                        <span>568</span>
-                        <p>Talented Hunter</p>
+                        <span><?= $jumlahPerusahaan ?></span>
+                        <p>Perusahaan Terdaftar</p>
                     </div>
                 </div>
             </div>

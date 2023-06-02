@@ -31,9 +31,17 @@ $dashboard = query("SELECT * FROM pelamar WHERE id_pelamar = $id_pelamar")[0];
                         </a>
                     </li>
                     <li>
+                        <a href="edit_profil.php" class="nav-link link-dark <?php echo ($title == 'Edit Profil') ?  "active" : "" ?> " style="<?php echo ($title == 'Edit Profil') ?  "" : "color: black;" ?>">
+                            <svg class="bi me-2" width="16" height="16">
+                                <use xlink:href="#toggles2" />
+                            </svg>
+                            &nbsp; Edit Profil
+                        </a>
+                    </li>
+                    <li>
                         <a href="job_listing.php" class="nav-link link-dark <?php echo ($title == 'Cari Lowongan Kerja') ?  "active" : "" ?> " style="<?php echo ($title == 'Cari Lowongan Kerja') ?  "" : "color: black;" ?>">
                             <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#table" />
+                                <use xlink:href="#collection" />
                             </svg>
                             &nbsp; Cari Lowongan Kerja
                         </a>
@@ -41,25 +49,9 @@ $dashboard = query("SELECT * FROM pelamar WHERE id_pelamar = $id_pelamar")[0];
                     <li>
                         <a href="lamaran_kerja.php" class="nav-link link-dark <?php echo ($title == 'Lamaran Kerja') ?  "active" : "" ?> " style="<?php echo ($title == 'Lamaran Kerja') ?  "" : "color: black;" ?>">
                             <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#grid" />
+                                <use xlink:href="#table" />
                             </svg>
                             &nbsp; Lamaran Kerja
-                        </a>
-                    </li>
-                    <li>
-                        <a href="edit_profil.php" class="nav-link link-dark <?php echo ($title == 'Edit Profil') ?  "active" : "" ?> " style="<?php echo ($title == 'Edit Profil') ?  "" : "color: black;" ?>">
-                            <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#people-circle" />
-                            </svg>
-                            &nbsp; Edit Profil
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" class="nav-link link-dark <?php echo ($title == 'Daftar Pelamar') ?  "active" : "" ?> " style="<?php echo ($title == 'Daftar Pelamar') ?  "" : "color: black;" ?>">
-                            <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#people-circle" />
-                            </svg>
-                            &nbsp; Pengaturan Akun
                         </a>
                     </li>
                 </ul>

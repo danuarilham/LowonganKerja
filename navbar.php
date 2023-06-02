@@ -12,6 +12,14 @@
 
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> -->
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
     <!-- CSS here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
@@ -28,18 +36,6 @@
 </head>
 
 <body>
-    <!-- Preloader Start -->
-    <!-- <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/logo.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Preloader Start -->
     <header>
         <!-- Header Start -->
         <div class="header-area header-transparrent">
@@ -60,22 +56,7 @@
                                         <ul id="navigation">
                                             <li><a href="index.php">Home</a></li>
                                             <li><a href="job_listing.php">Cari Lowongan Kerja</a></li>
-                                            <!-- <li><a href="about.php">About</a></li> -->
-                                            <!-- <li><a href="#">Page</a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.php">Blog</a></li>
-                                                    <li><a href="single-blog.php">Blog Details</a></li>
-                                                    <li><a href="elements.php">Elements</a></li>
-                                                    <li><a href="job_details.php">job Details</a></li>
-                                                </ul>
-                                            </li> -->
-                                            <li><a href="contact.php">Pasang Lowongan Kerja</a></li>
-                                            <!-- <li>
-                                                <div class="d-flex header-btn d-none ml-5">
-                                                    <a href="register.php" class="btn head-btn1">Register</a>
-                                                    <a href="login.php" class="btn head-btn2">Login</a>
-                                                </div>
-                                            </li> -->
+                                            <li><a href="login-perusahaan.php">Pasang Lowongan Kerja</a></li>
                                         </ul>
                                     </nav>
                                 </div>

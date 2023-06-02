@@ -142,7 +142,7 @@ if (isset($_GET["cari"])) {
                                         <path fill-rule="evenodd" fill="rgb(27, 207, 107)" d="M7.778,12.000 L12.222,12.000 L12.222,10.000 L7.778,10.000 L7.778,12.000 ZM-0.000,-0.000 L-0.000,2.000 L20.000,2.000 L20.000,-0.000 L-0.000,-0.000 ZM3.333,7.000 L16.667,7.000 L16.667,5.000 L3.333,5.000 L3.333,7.000 Z" />
                                     </svg>
                                 </div>
-                                <h4>Filter Jobs</h4>
+                                <h4>Filter Pekerjaan</h4>
                             </div>
                         </div>
                     </div>
@@ -151,64 +151,48 @@ if (isset($_GET["cari"])) {
                         <!-- single one -->
                         <div class="single-listing">
                             <div class="small-section-tittle2">
-                                <h4>Job Category</h4>
+                                <h4>Minimal Pendidikan</h4>
                             </div>
-                            <!-- Select job items start -->
+                            <!-- minimal pendidikan start -->
                             <div class="select-job-items2">
-                                <select name="select">
-                                    <option value="">All Category</option>
-                                    <option value="">Category 1</option>
-                                    <option value="">Category 2</option>
-                                    <option value="">Category 3</option>
-                                    <option value="">Category 4</option>
+                                <select name="pendidikan" id="pendidikan" class="form-select">
+                                    <option value="" class="text-black" disabled selected hidden>Pilih</option>
+                                    <option value="SMA/Sederajat">SMA/Sederajat</option>
+                                    <option value="Diploma/D1/D2/D3">Diploma/D1/D2/D3</option>
+                                    <option value="Sarjana / S1">Sarjana / S1</option>
+                                    <option value="Master / S2">Master / S2</option>
+                                    <option value="Doctor / S3">Doctor / S3</option>
                                 </select>
 
                             </div>
+                            <!--  minimal pendidikan End-->
 
-                            <!--  Select job items End-->
-                            <!-- select-Categories start -->
+                            <!-- tipe pekerjaan start -->
                             <div class="select-Categories pt-80 pb-50">
                                 <div class="small-section-tittle2">
-                                    <h4>Job Type</h4>
+                                    <h4>Tipe Pekerjaan</h4>
                                 </div>
                                 <label class="container">Full Time
                                     <input type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="container">Part Time
-                                    <input type="checkbox" checked="checked active">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Remote
                                     <input type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
+                                <!-- <label class="container">Remote
+                                    <input type="checkbox" checked="checked active">
+                                    <span class="checkmark"></span>
+                                </label> -->
                                 <label class="container">Freelance
                                     <input type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <!-- select-Categories End -->
-                        </div>
-                        <!-- single two -->
-                        <div class="single-listing pb-50">
-                            <div class="small-section-tittle2">
-                                <h4>Job Location</h4>
-                            </div>
-                            <!-- Select job items start -->
-                            <div class="select-job-items2">
-                                <select name="select">
-                                    <option value="">Anywhere</option>
-                                    <option value="">Category 1</option>
-                                    <option value="">Category 2</option>
-                                    <option value="">Category 3</option>
-                                    <option value="">Category 4</option>
-                                </select>
-                            </div>
-                            <!--  Select job items End-->
-
+                            <!-- tipe pekerjaan End -->
                         </div>
 
+                        <button class="genric-btn primary" onclick="return alert('Fitur filter sedang dikembangkan')">Filter</button>
                     </div>
                     <!-- Job Category Listing End -->
                 </div>
@@ -265,10 +249,13 @@ if (isset($_GET["cari"])) {
                                             </div>
                                         </div>
                                         <div class="f-right">
-                                        <a class="genric-btn <?php if ($row['tipe'] == "Full Time") {
-                                            echo "danger"; } else if ($row['tipe'] == "Part Time") {
-                                            echo "primary"; } else {
-                                            echo "success"; } ?>-border circle" href="job_details.php?id=<?= $row['id_pekerjaan'] ?>"><?= $row['tipe'] ?></a>
+                                            <a class="genric-btn <?php if ($row['tipe'] == "Full Time") {
+                                                                        echo "danger";
+                                                                    } else if ($row['tipe'] == "Part Time") {
+                                                                        echo "primary";
+                                                                    } else {
+                                                                        echo "success";
+                                                                    } ?>-border circle" href="job_details.php?id=<?= $row['id_pekerjaan'] ?>"><?= $row['tipe'] ?></a>
                                             <!-- <span>7 hours ago</span> -->
                                         </div>
                                     </div>
