@@ -2,34 +2,10 @@
 session_start();
 require 'functions.php';
 
-// cek cookie
-// if (isset($_COOKIE['login']))
-// {
-//     if ($_COOKIE["login"] == 'true')
-//     {
-//         $_SESSION["login"] = true;
-//     }
-// }
-
-if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
-  $id = $_COOKIE["id"];
-  $key = $_COOKIE["key"];
-
-  // ambil username_perusahaan berdasarkan id
-  $result = mysqli_query($conn, "SELECT username_perusahaan FROM perusahaan WHERE id = $id");
-  $row = mysqli_fetch_assoc($result);
-
-  // cek cookie dan username_perusahaan
-  if ($key === hash('sha256', $row['username_perusahaan'])) {
-    $_SESSION["login_perusahaan"] = true;
-  }
-}
-
 if (isset($_SESSION["login_perusahaan"])) {
   header("Location: perusahaan/index.php");
   exit;
 }
-
 
 if (isset($_POST['login_perusahaan'])) {
   $username = $_POST['username'];
@@ -45,17 +21,9 @@ if (isset($_POST['login_perusahaan'])) {
     // if (password_verify($password, $row['password_perusahaan'])) {
     if ($password === $row['password_perusahaan']) {
       // set session
-      // $_SESSION['name'] = $row['companyname'];
+      
       $_SESSION["login_perusahaan"] = true;
       $_SESSION['id_perusahaan'] = $row['id_perusahaan'];
-
-      // cek remember me
-      if (isset($_POST["remember"])) {
-        // buat cookie
-        // setcookie('login', 'true', time() + 60);
-        setcookie('id', $row['id'], time() + 60);
-        setcookie('key', hash('sha256', $row['username']), time() + 60);
-      }
 
       header("Location: perusahaan/index.php");
       exit;
@@ -66,7 +34,7 @@ if (isset($_POST['login_perusahaan'])) {
 }
 ?>
 
-<?php $title = 'Login Perusahaan'?>
+<?php $title = 'Login Perusahaan' ?>
 <?php include 'navbar.php' ?>
 
 <!-- breadcumb -->
@@ -107,7 +75,7 @@ if (isset($_POST['login_perusahaan'])) {
             </div>
           </div>
           <?php if (isset($error)) { ?>
-            <p style="color: red; font-style: italic;">Email / password salah!</p>
+            <p style="color: red;" class="font-italic"><strong>Email / password salah!</strong></p>
           <?php } ?>
 
           <div class="row form-group">
@@ -123,4 +91,4 @@ if (isset($_POST['login_perusahaan'])) {
 </section>
 <!-- end form register -->
 
-<?php include 'footer.php'?>
+<?php include 'footer.php' ?>

@@ -33,7 +33,7 @@ if (isset($_SESSION["login_pelamar"])) {
           </div>
           <div class="process-cap">
             <h5>Daftar Sebagai Pencari Kerja</h5>
-            <p>Buat resume online Gratis untuk peroleh peluang kerja lebih baik</p>
+            <p>Buat akun untuk melamar pekerjaan yang Anda sukai</p>
             <br>
           </div>
           <div class="row">
@@ -67,4 +67,4 @@ if (isset($_SESSION["login_pelamar"])) {
   </div>
 </div>
 
-<?php include 'footer.php'?>
+<?php include 'footer.php' ?>

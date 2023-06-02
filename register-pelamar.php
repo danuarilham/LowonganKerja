@@ -18,7 +18,10 @@ if (isset($_POST['register_pelamar'])) {
             alert('Registrasi berhasil!');
             </script>";
   } else {
-    echo mysqli_error($conn);
+    echo "
+            <script>
+            alert('Registrasi gagal!');
+            </script>";
   }
 }
 ?>
@@ -52,20 +55,20 @@ if (isset($_POST['register_pelamar'])) {
 
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">
-              <label class="text-black" for="fname">Email</label>
-              <input type="email" id="fname" class="form-control" placeholder="Email address" name="username">
+              <label class="text-black" for="email">Email</label>
+              <input type="email" id="email" class="form-control" placeholder="Alamat email" name="username" required>
             </div>
           </div>
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">
-              <label class="text-black" for="fname">Password</label>
-              <input type="password" id="fname" class="form-control" placeholder="Password" name="password">
+              <label class="text-black" for="password">Password</label>
+              <input type="password" id="password" class="form-control" placeholder="Password" name="password_pelamar" required>
             </div>
           </div>
           <div class="row form-group mb-4">
             <div class="col-md-12 mb-3 mb-md-0">
-              <label class="text-black" for="fname">Re-Type Password</label>
-              <input type="password" id="fname" class="form-control" placeholder="Re-type Password" name="password2">
+              <label class="text-black" for="password2">Konfirmasi Password</label>
+              <input type="password" id="password2" class="form-control" placeholder="Konfirmasi Password" name="password_pelamar2" required>
             </div>
           </div>
 

@@ -2,29 +2,6 @@
 session_start();
 require 'functions.php';
 
-// cek cookie
-// if (isset($_COOKIE['login']))
-// {
-//     if ($_COOKIE["login"] == 'true')
-//     {
-//         $_SESSION["login"] = true;
-//     }
-// }
-
-if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
-  $id = $_COOKIE["id"];
-  $key = $_COOKIE["key"];
-
-  // ambil username berdasarkan id
-  $result = mysqli_query($conn, "SELECT username FROM user WHERE id = $id");
-  $row = mysqli_fetch_assoc($result);
-
-  // cek cookie dan username
-  if ($key === hash('sha256', $row['username'])) {
-    $_SESSION["login_pelamar"] = true;
-  }
-}
-
 if (isset($_SESSION["login_pelamar"])) {
   header("Location: user/index.php");
   exit;
@@ -47,14 +24,6 @@ if (isset($_POST['login_pelamar'])) {
       // set session
       $_SESSION["login_pelamar"] = true;
       $_SESSION['id_pelamar'] = $row['id_pelamar'];
-
-      // cek remember me
-      if (isset($_POST["remember"])) {
-        // buat cookie
-        // setcookie('login_pelamar', 'true', time() + 60);
-        setcookie('id', $row['id'], time() + 60);
-        setcookie('key', hash('sha256', $row['username']), time() + 60);
-      }
 
       header("Location: user/index.php");
       exit;
@@ -95,16 +64,20 @@ if (isset($_POST['login_pelamar'])) {
 
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">
-              <label class="text-black" for="fname">Email</label>
-              <input type="text" id="fname" class="form-control" placeholder="Email address" name="username">
+              <label class="text-black" for="email">Email</label>
+              <input type="text" id="email" class="form-control" placeholder="Alamat email" name="username" required>
             </div>
           </div>
           <div class="row form-group mb-4">
             <div class="col-md-12 mb-3 mb-md-0">
-              <label class="text-black" for="fname">Password</label>
-              <input type="password" id="fname" class="form-control" placeholder="Password" name="password">
+              <label class="text-black" for="password">Password</label>
+              <input type="password" id="password" class="form-control" placeholder="Password" name="password" required>
             </div>
           </div>
+
+          <?php if (isset($error)) { ?>
+            <p style="color: red;" class="font-italic"><strong>Email / password salah!</strong></p>
+          <?php } ?>
 
           <div class="row form-group">
             <div class="col-md-12">

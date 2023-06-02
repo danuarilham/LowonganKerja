@@ -19,7 +19,10 @@ if (isset($_POST['register_perusahaan'])) {
             alert('Registrasi berhasil!');
             </script>";
   } else {
-    echo mysqli_error($conn);
+    echo "
+            <script>
+            alert('Registrasi gagal!');
+            </script>";
   }
 }
 
@@ -56,7 +59,7 @@ $lokasi = query("SELECT * FROM lokasi_pekerjaan");
 
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">
-              <label class="text-black font-weight-bold" for="fname">Info Perusahaan</label>
+              <label class="text-black font-weight-bold">Info Perusahaan</label>
               <hr class="mt-1 mb-1">
             </div>
           </div>

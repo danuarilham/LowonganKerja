@@ -32,7 +32,7 @@ if (isset($_SESSION["login_pelamar"])) {
           </div>
           <div class="process-cap">
             <h5>Login Sebagai Pencari Kerja</h5>
-            <p>Biarkan Pekerjaan Menemukan Anda</p>
+            <p>Temukan Pekerjaan yang akan Anda Sukai</p>
           </div>
           <div class="row">
             <div class="col-lg-12">

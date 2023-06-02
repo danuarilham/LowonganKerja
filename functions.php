@@ -449,17 +449,6 @@ FROM
     return query($query);
 }
 
-// function cari_limited($keyword, $awalData, $jumlahDataPerHalaman)
-// {
-//     $query = "SELECT * FROM mahasiswa WHERE
-//                 nim LIKE '%$keyword%' OR
-//                 nama LIKE '%$keyword%' OR
-//                 email LIKE '%$keyword%' OR
-//                 jurusan LIKE '%$keyword%' LIMIT $awalData, $jumlahDataPerHalaman";
-
-//     return query($query);
-// }
-
 function registrasi_pelamar($data)
 {
     global $conn;
