@@ -27,6 +27,22 @@ $info = query("SELECT * FROM perusahaan WHERE id_perusahaan = $id_perusahaan")[0
 <?php $title = 'Home | Perusahaan' ?>
 <?php include 'navbar.php' ?>
 
+<!-- breadcumb -->
+<section class="breadcrumb" id="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 mt-8 mb-8">
+        <h1 class="text-black font-weight-bold">Dashboard</h1>
+        <div class="custom-breadcrumbs">
+          <a href="index.php"><span style="color: black;">Dashboard</span></a> <span class="mx-2 slash">/</span>
+          <span class="text-black"><strong>Home</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- breadcumb end -->
+
 <main>
 
   <div class="wrapper">
@@ -113,16 +129,6 @@ $info = query("SELECT * FROM perusahaan WHERE id_perusahaan = $id_perusahaan")[0
                       </div>
                     </div>
                   </div>
-                  <!-- <div class="col-md-6">
-                  <div class="info-box bg-c-yellow">
-                    <span class="info-box-icon bg-green"><i class="ion ion-ios-browsers"></i></span>
-                    <div class="info-box-content">
-                      <span class="info-box-text">Application For Jobs</span>
-
-                      <span class="info-box-number"><?php echo $total; ?></span>
-                    </div>
-                  </div>
-                </div> -->
                 </div>
 
               </div>

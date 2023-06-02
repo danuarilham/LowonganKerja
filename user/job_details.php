@@ -87,21 +87,6 @@ if (isset($_POST['lamar'])) {
 <!-- breadcumb end -->
 
 <main>
-    <!-- Hero Area Start-->
-    <!-- <div class="slider-area ">
-        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/about.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hero-cap text-center">
-                            <h2>UI/UX Designer</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Hero Area End -->
     <!-- job post company Start -->
     <div class="job-post-company pt-20 pb-20">
         <div class="container">
@@ -110,12 +95,10 @@ if (isset($_POST['lamar'])) {
                 <div class="col-xl-7 col-lg-8">
                     <!-- job single -->
                     <div class="shadow-sm">
-
-
                         <div class="single-job-items mb-50">
                             <div class="job-items">
                                 <div class="company-img company-img-details">
-                                    <a href="#"><img src="../assets/img/logo/<?= $info['logo_perusahaan'] ?>" alt="" width="100px"></a>
+                                    <a href="#"><img src="../upload/perusahaan/logo/<?= $info['logo_perusahaan'] ?>" alt="" width="100px"></a>
                                 </div>
                                 <div class="job-tittle">
                                     <a href="#">
@@ -230,6 +213,18 @@ if (isset($_POST['lamar'])) {
                 <form action="" method="post">
                     <input type="hidden" name="id_pelamar" id="id_pelamar" value="<?= $id_pelamar ?>">
                     <input type="hidden" name="id_pekerjaan" id="id_pekerjaan" value="<?= $id_pekerjaan ?>">
+                    <input type="hidden" name="nama_pelamar" id="nama_pelamar" value="<?= $pelamar['nama_pelamar'] ?>">
+                    <input type="hidden" name="email_pelamar" id="email_pelamar" value="<?= $pelamar['email_pelamar'] ?>">
+                    <input type="hidden" name="telepon_pelamar" id="telepon_pelamar" value="<?= $pelamar['telepon_pelamar'] ?>">
+                    <input type="hidden" name="jenis_kelamin" id="jenis_kelamin" value="<?= $pelamar['jenis_kelamin'] ?>">
+                    <input type="hidden" name="tahun_kelahiran" id="tahun_kelahiran" value="<?= $pelamar['tahun_kelahiran'] ?>">
+                    <input type="hidden" name="alamat_pelamar" id="alamat_pelamar" value="<?= $pelamar['alamat_pelamar'] ?>">
+                    <input type="hidden" name="kota_kab_pelamar" id="kota_kab_pelamar" value="<?= $pelamar['kota_kab_pelamar'] ?>">
+                    <input type="hidden" name="pendidikan_terakhir" id="pendidikan_terakhir" value="<?= $pelamar['pendidikan_terakhir'] ?>">
+                    <input type="hidden" name="lama_bekerja" id="lama_bekerja" value="<?= $pelamar['lama_bekerja'] ?>">
+                    <input type="hidden" name="resume" id="resume" value="<?= $pelamar['resume'] ?>">
+                    <input type="hidden" name="foto_pelamar" id="foto_pelamar" value="<?= $pelamar['foto_pelamar'] ?>">
+
                     <div class="container">
                         <div class="alert alert-warning" role="alert">
                             Pastikan data Anda sudah terisi dengan benar.
@@ -290,6 +285,7 @@ if (isset($_POST['lamar'])) {
                                 </tr>
                             </tbody>
                         </table>
+
                         <div class="col-md-12 mt-5 mb-3">
                             <label class="text-black" for="pesan_promosi"><strong>Promosikan diri Anda! </strong><span style="color:red"> *</span></label>
                             <p><small>Beritahu perusahaan mengapa anda cocok untuk posisi ini. Sebutkan keterampilan khusus dan bagaimana anda berkontribusi. Hindari hal umum seperti "Saya bertanggung jawab ..."</small></p>

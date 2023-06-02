@@ -39,7 +39,7 @@ $dashboard = query("SELECT * FROM pelamar WHERE id_pelamar = $id_pelamar")[0];
                         </a>
                     </li>
                     <li>
-                        <a href="" class="nav-link link-dark <?php echo ($title == 'Postingan Pekerjaan') ?  "active" : "" ?> " style="<?php echo ($title == 'Postingan Pekerjaan') ?  "" : "color: black;" ?>">
+                        <a href="lamaran_kerja.php" class="nav-link link-dark <?php echo ($title == 'Lamaran Kerja') ?  "active" : "" ?> " style="<?php echo ($title == 'Lamaran Kerja') ?  "" : "color: black;" ?>">
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#grid" />
                             </svg>

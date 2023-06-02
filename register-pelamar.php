@@ -71,7 +71,7 @@ if (isset($_POST['register_pelamar'])) {
 
           <div class="row form-group">
             <div class="col-md-12">
-              <input type="submit" class="btn px-4 btn-primary text-white" name="register_pelamar">
+              <input type="submit" value="Register" class="btn px-4 btn-primary text-white" name="register_pelamar">
             </div>
           </div>
 

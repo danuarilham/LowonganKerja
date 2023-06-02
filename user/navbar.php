@@ -103,7 +103,7 @@
                         <div class="col-lg-3 col-md-2 mt-2 mb-2">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="index.php"><img src="../assets/img/logo/logo.png" alt=""></a>
+                                <a href="index.php"><img src="../assets/img/logo/logo2.png" width="200" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-9">

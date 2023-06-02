@@ -46,83 +46,100 @@ if (isset($_POST['buat_lowongan_kerja'])) {
   }
 }
 ?>
-  <?php $title = 'Buat Lowongan Kerja'?>
-  <?php include 'navbar.php' ?>
 
-  <main>
-    <div class="wrapper">
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
+<?php $title = 'Buat Lowongan Kerja' ?>
+<?php include 'navbar.php' ?>
 
-        <section class="content-header">
-          <div class="container">
-            <div class="row">
+<!-- breadcumb -->
+<section class="breadcrumb" id="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 mt-8 mb-8">
+        <h1 class="text-black font-weight-bold">Dashboard</h1>
+        <div class="custom-breadcrumbs">
+          <a href="index.php"><span style="color: black;">Dashboard</span></a> <span class="mx-2 slash">/</span>
+          <span class="text-black"><strong>Buat Lowongan Kerja</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- breadcumb end -->
+
+<main>
+  <div class="wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+      <section class="content-header">
+        <div class="container">
+          <div class="row">
 
             <?php include 'dashboard.php' ?>
 
 
-              <div class="col-md-8 bg-white padding-2 container">
-                <h3 class="mb-4">Buat Lowongan Kerja</h3>
-                <form action="" method="post" class="row g-3">
+            <div class="col-md-8 bg-white padding-2 container">
+              <h3 class="mb-4">Buat Lowongan Kerja</h3>
+              <form action="" method="post" class="row g-3">
 
-                  <input type="text" name="id_perusahaan" value="<?= $id_perusahaan ?>" hidden>
-                  <input type="text" name="id_lokasi" value="<?= $info['id_lokasi'] ?>" hidden>
+                <input type="text" name="id_perusahaan" value="<?= $id_perusahaan ?>" hidden>
+                <input type="text" name="id_lokasi" value="<?= $info['id_lokasi'] ?>" hidden>
 
-                  <div class="col-md-12 mb-3">
-                    <label for="judul" class="form-label">Nama Pekerjaan <span style="color:red"> *</span></label>
-                    <input type="text" class="form-control" id="judul" name="judul" required>
-                  </div>
+                <div class="col-md-12 mb-3">
+                  <label for="judul" class="form-label">Nama Pekerjaan <span style="color:red"> *</span></label>
+                  <input type="text" class="form-control" id="judul" name="judul" required>
+                </div>
 
-                  <div class="col-md-6 mb-3">
-                    <label class="text-black" for="tipe">Tipe Pekerjaan <span style="color:red"> *</span></label>
-                    <select name="tipe" id="tipe" class="form-select" required>
-                      <option value="Full Time">Full Time</option>
-                      <option value="Part Time">Part Time</option>
-                      <option value="Freelance">Freelance</option>
-                    </select>
-                  </div>
+                <div class="col-md-6 mb-3">
+                  <label class="text-black" for="tipe">Tipe Pekerjaan <span style="color:red"> *</span></label>
+                  <select name="tipe" id="tipe" class="form-select" required>
+                    <option value="Full Time">Full Time</option>
+                    <option value="Part Time">Part Time</option>
+                    <option value="Freelance">Freelance</option>
+                  </select>
+                </div>
 
-                  <div class="col-md-6 mb-3">
-                    <label for="pendidikan" class="form-label">Minimal Pendidikan <span style="color:red"> *</span></label>
-                    <select name="pendidikan" id="pendidikan" class="form-select" required>
-                      <option value="SMA/Sederajat">SMA/Sederajat</option>
-                      <option value="Diploma/D1/D2/D3">Diploma/D1/D2/D3</option>
-                      <option value="Sarjana / S1">Sarjana / S1</option>
-                      <option value="Master / S2">Master / S2</option>
-                      <option value="Doctor / S3">Doctor / S3</option>
-                    </select>
-                  </div>
+                <div class="col-md-6 mb-3">
+                  <label for="pendidikan" class="form-label">Minimal Pendidikan <span style="color:red"> *</span></label>
+                  <select name="pendidikan" id="pendidikan" class="form-select" required>
+                    <option value="SMA/Sederajat">SMA/Sederajat</option>
+                    <option value="Diploma/D1/D2/D3">Diploma/D1/D2/D3</option>
+                    <option value="Sarjana / S1">Sarjana / S1</option>
+                    <option value="Master / S2">Master / S2</option>
+                    <option value="Doctor / S3">Doctor / S3</option>
+                  </select>
+                </div>
 
-                  <div class="col-md-6 mb-3">
-                    <label for="gaji" class="form-label">Gaji <span style="color:red"> *</span></label>
-                    <input type="text" class="form-control" id="gaji" name="gaji" required>
-                  </div>
+                <div class="col-md-6 mb-3">
+                  <label for="gaji" class="form-label">Gaji <span style="color:red"> *</span></label>
+                  <input type="text" class="form-control" id="gaji" name="gaji" required>
+                </div>
 
-                  <div class="col-md-6 mb-6 mb-md-0">
-                    <label class="text-black" for="kategori">Kategori <span style="color:red"> *</span></label>
-                    <select name="id_kategori" id="kategori" class="form-select" required>
-                      <?php foreach ($kategori as $row) { ?>
-                        <option value="<?= $row['id_kategori'] ?>"><?= $row['nama_kategori'] ?></option>
-                      <?php } ?>
-                    </select>
-                  </div>
+                <div class="col-md-6 mb-6 mb-md-0">
+                  <label class="text-black" for="kategori">Kategori <span style="color:red"> *</span></label>
+                  <select name="id_kategori" id="kategori" class="form-select" required>
+                    <?php foreach ($kategori as $row) { ?>
+                      <option value="<?= $row['id_kategori'] ?>"><?= $row['nama_kategori'] ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
 
-                  <div class="col-md-12 mb-3 mb-md-0">
-                    <label class="text-black" for="deskripsi">Deskripsi Pekerjaan <span style="color:red"> *</span></label>
-                    <textarea name="deskripsi" id="deskripsi" cols="30" rows="5" class="form-control" required></textarea>
-                  </div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="text-black" for="deskripsi">Deskripsi Pekerjaan <span style="color:red"> *</span></label>
+                  <textarea name="deskripsi" id="deskripsi" cols="30" rows="5" class="form-control" required></textarea>
+                </div>
 
-                  <div class="col-12 mt-4 mb-5">
-                    <button type="submit" class="btn btn-primary" name="buat_lowongan_kerja">Buat Lowongan Kerja</button>
-                  </div>
+                <div class="col-12 mt-4 mb-5">
+                  <button type="submit" class="btn btn-primary" name="buat_lowongan_kerja">Buat Lowongan Kerja</button>
+                </div>
 
-                </form>
-              </div>
+              </form>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+    </div>
 
-      <?php include 'js.php' ?>
+    <?php include 'js.php' ?>
 
-</body>
+    </body>

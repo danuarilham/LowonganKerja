@@ -50,6 +50,21 @@ if (isset($_POST['update_profil_perusahaan'])) {
 <?php $title = 'Profil Perusahaan' ?>
 <?php include 'navbar.php' ?>
 
+<!-- breadcumb -->
+<section class="breadcrumb" id="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 mt-8 mb-8">
+        <h1 class="text-black font-weight-bold">Dashboard</h1>
+        <div class="custom-breadcrumbs">
+          <a href="index.php"><span style="color: black;">Dashboard</span></a> <span class="mx-2 slash">/</span>
+          <span class="text-black"><strong>Profil Perusahaan</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- breadcumb end -->
 
 <main>
   <div class="wrapper">
@@ -69,19 +84,19 @@ if (isset($_POST['update_profil_perusahaan'])) {
                 <input type="hidden" name="id" id="id" value="<?= $info["id_perusahaan"]; ?>">
                 <input type="hidden" name="gambarLama" id="gambarLama" value="<?= $info["logo_perusahaan"]; ?>">
 
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                   <label for="nama" class="form-label">Nama Perusahaan <span style="color:red"> *</span></label>
                   <input type="text" class="form-control" id="nama_perusahaan" name="nama_perusahaan" value="<?= $info['nama_perusahaan'] ?>" required>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                   <label for="website" class="form-label">Website</label>
                   <input type="text" class="form-control" id="website" name="website_perusahaan" value="<?= $info['website_perusahaan'] ?>">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input type="email" class="form-control" id="email" name="email_perusahaan" value="<?= $info['email_perusahaan'] ?>" readonly>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                   <label for="telepon" class="form-label">Nomor HP/Telepon</label>
                   <input type="text" class="form-control" id="telepon" name="telepon_perusahaan" value="<?= $info['telepon_perusahaan'] ?>">
                 </div>
@@ -97,7 +112,7 @@ if (isset($_POST['update_profil_perusahaan'])) {
                     <?php } ?>
                   </select>
                 </div>
-                
+
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="text-black" for="tentang">Tentang</label>
                   <textarea name="tentang" id="tentang" cols="30" rows="5" class="form-control"><?= $info['tentang'] ?></textarea>

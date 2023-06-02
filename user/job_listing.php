@@ -70,24 +70,6 @@ if (isset($_POST["cari"])) {
 <!-- breadcumb end -->
 
 <main>
-
-    <!-- Hero Area Start-->
-    <!-- <div class="slider-area ">
-            <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/about.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="hero-cap text-center">
-                                <h2 style="font-size: 35px;">Temukan pekerjaan yang akan Anda sukai.</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-    <!-- Hero Area End -->
-    <!-- Job List Area Start -->
-
     <!-- Search Box -->
     <div class="slider-area mt-3">
         <div class="d-flex align-items-center">
@@ -254,31 +236,7 @@ if (isset($_POST["cari"])) {
                             </div>
                             <!-- select-Categories End -->
                         </div>
-                        <div class="single-listing">
-                            <!-- Range Slider Start -->
-                            <aside class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow">
-                                <div class="small-section-tittle2">
-                                    <h4>Filter Jobs</h4>
-                                </div>
-                                <div class="widgets_inner">
-                                    <div class="range_item">
-                                        <!-- <div id="slider-range"></div> -->
-                                        <input type="text" class="js-range-slider" value="" />
-                                        <div class="d-flex align-items-center">
-                                            <div class="price_text">
-                                                <p>Price :</p>
-                                            </div>
-                                            <div class="price_value d-flex justify-content-center">
-                                                <input type="text" class="js-input-from" id="amount" readonly />
-                                                <span>to</span>
-                                                <input type="text" class="js-input-to" id="amount" readonly />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </aside>
-                            <!-- Range Slider End -->
-                        </div>
+
                     </div>
                     <!-- Job Category Listing End -->
                 </div>
@@ -313,25 +271,29 @@ if (isset($_POST["cari"])) {
                                     <div class="single-job-items mb-30">
                                         <div class="job-items">
                                             <div class="company-img">
-                                                <a href="job_details.php?id=<?= $row['id_pekerjaan'] ?>"><img src="../assets/img/logo/<?= $row['logo_perusahaan'] ?>" alt="" width="75px"></a>
+                                                <a href="job_details.php?id=<?= $row['id_pekerjaan'] ?>"><img src="../upload/perusahaan/logo/<?= $row['logo_perusahaan'] ?>" alt="" width="100px" class="img-thumbnail"></a>
                                             </div>
                                             <div class="job-tittle job-tittle2">
                                                 <a href="job_details.php?id=<?= $row['id_pekerjaan'] ?>">
                                                     <h4><?= $row['judul'] ?></h4>
                                                 </a>
                                                 <ul>
-                                                    <li><?= $row['nama_perusahaan'] ?></li>
+                                                    <li><strong>
+                                                            <?= $row['nama_perusahaan'] ?>
+                                                        </strong></li>
                                                     <li><i class="fas fa-money-bill-alt"></i>Rp. <?= $row['gaji'] ?></li>
                                                 </ul>
                                                 <ul>
                                                     <li><i class="fas fa-map-marker-alt"></i><?= $row['nama_lokasi'] ?></li>
-                                                    <li><i class="fas fa-university"></i><?= $row['pendidikan'] ?></li>
-
+                                                    <li><i class="fas fa-graduation-cap"></i><?= $row['pendidikan'] ?></li>
+                                                </ul>
+                                                <ul>
+                                                    <li><i class="fas fa-list-alt"></i><?= $row['nama_kategori'] ?></li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="items-link items-link2 f-right">
-                                            <a href="job_details.php?id=<?= $row['id_pekerjaan'] ?>"><?= $row['tipe'] ?></a>
+                                        <div class="f-right">
+                                            <a class="genric-btn danger-border circle" href="job_details.php?id=<?= $row['id_pekerjaan'] ?>"><?= $row['tipe'] ?></a>
                                             <!-- <span>7 hours ago</span> -->
                                         </div>
                                     </div>

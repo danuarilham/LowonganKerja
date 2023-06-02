@@ -62,8 +62,19 @@ function tambah_detail_lamaran($data)
     $id_pekerjaan = $data["id_pekerjaan"];
     $id_pelamar = $data["id_pelamar"];
     $pesan_promosi = htmlspecialchars($data["pesan_promosi"]);
+    $nama_pelamar = htmlspecialchars($data["nama_pelamar"]);
+    $email_pelamar = htmlspecialchars($data["email_pelamar"]);
+    $telepon_pelamar = htmlspecialchars($data["telepon_pelamar"]);
+    $jenis_kelamin = htmlspecialchars($data["jenis_kelamin"]);
+    $tahun_kelahiran = htmlspecialchars($data["tahun_kelahiran"]);
+    $alamat_pelamar = htmlspecialchars($data["alamat_pelamar"]);
+    $kota_kab_pelamar = htmlspecialchars($data["kota_kab_pelamar"]);
+    $pendidikan_terakhir = htmlspecialchars($data["pendidikan_terakhir"]);
+    $lama_bekerja = htmlspecialchars($data["lama_bekerja"]);
+    $resume = htmlspecialchars($data["resume"]);
+    $foto_pelamar = htmlspecialchars($data["foto_pelamar"]);
 
-    $query = "INSERT INTO detail_lamaran (id_lamaran, id_pekerjaan, id_pelamar, pesan_promosi, status_lamaran) VALUES ('', $id_pekerjaan, $id_pelamar, '$pesan_promosi', 0)";
+    $query = "INSERT INTO detail_lamaran (id_lamaran, id_pekerjaan, id_pelamar, pesan_promosi, status_lamaran, nama_pelamar, email_pelamar, telepon_pelamar, foto_pelamar, pendidikan_terakhir, resume, jenis_kelamin, tahun_kelahiran, alamat_pelamar, kota_kab_pelamar, lama_bekerja) VALUES ('', $id_pekerjaan, $id_pelamar, '$pesan_promosi', 0, '$nama_pelamar', '$email_pelamar', '$telepon_pelamar', '$foto_pelamar', '$pendidikan_terakhir', '$resume', '$jenis_kelamin', '$tahun_kelahiran', '$alamat_pelamar', '$kota_kab_pelamar', '$lama_bekerja')";
 
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
