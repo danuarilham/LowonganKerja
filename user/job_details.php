@@ -97,21 +97,25 @@ if (isset($_POST['lamar'])) {
                     <div class="shadow-sm">
                         <div class="single-job-items mb-50">
                             <div class="job-items">
-                                <div class="company-img company-img-details">
-                                    <a href="#"><img src="../upload/perusahaan/logo/<?= $info['logo_perusahaan'] ?>" alt="" width="100px"></a>
+                                <div class="company-img">
+                                    <a href="job_details.php?id=<?= $info['id_pekerjaan'] ?>"><img src="../upload/perusahaan/logo/<?= $info['logo_perusahaan'] ?>" alt="" width="100px" class="img-thumbnail"></a>
                                 </div>
-                                <div class="job-tittle">
-                                    <a href="#">
+                                <div class="job-tittle job-tittle2">
+                                    <a href="job_details.php?id=<?= $info['id_pekerjaan'] ?>">
                                         <h4><?= $info['judul'] ?></h4>
                                     </a>
                                     <ul>
-                                        <li><?= $info['nama_perusahaan'] ?></li>
-                                        <li><i class="fas fa-money-bill-alt"></i>Rp. <?= $info['gaji'] ?></li>
+                                        <li><strong>
+                                                <?= $info['nama_perusahaan'] ?>
+                                            </strong></li>
+                                        <li><i class="fas fa-money-bill-alt"></i>Rp. <?= number_format($info['gaji'], 2, ",", ".") ?></li>
                                     </ul>
                                     <ul>
                                         <li><i class="fas fa-map-marker-alt"></i><?= $info['nama_lokasi'] ?></li>
-                                        <li><i class="fas fa-university"></i><?= $info['pendidikan'] ?></li>
-
+                                        <li><i class="fas fa-graduation-cap"></i><?= $info['pendidikan'] ?></li>
+                                    </ul>
+                                    <ul>
+                                        <li><i class="fas fa-list-alt"></i><?= $info['nama_kategori'] ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -161,21 +165,22 @@ if (isset($_POST['lamar'])) {
                     <div class="post-details3  mb-50">
                         <!-- Small Section Tittle -->
                         <div class="small-section-tittle">
-                            <h4>Job Overview</h4>
+                            <h4>Ringkasan Pekerjaan</h4>
                         </div>
                         <ul>
+                            <li>Posisi : <span><?= $info['judul'] ?></span></li>
                             <li>Kategori Pekerjaan : <span><?= $info['nama_kategori'] ?></span></li>
                             <li>Tingkat Pendidikan : <span><?= $info['pendidikan'] ?></span></li>
                             <li>Lokasi : <span><?= $info['nama_lokasi'] ?></span></li>
                             <!-- <li>Vacancy : <span>02</span></li> -->
                             <li>Status Kerja : <span><?= $info['tipe'] ?></span></li>
-                            <li>Besaran Gaji : <span>Rp. <?= $info['gaji'] ?></span></li>
+                            <li>Besaran Gaji : <span>Rp. <?= number_format($info['gaji'], 2, ",", ".") ?></span></li>
                             <!-- <li>Application date : <span>12 Sep 2020</span></li> -->
                         </ul>
                         <!-- Button trigger modal -->
                         <div class="apply-btn2">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formLamar">
-                                Apply Now
+                                Lamar Pekerjaan
                             </button>
                         </div>
                     </div>
@@ -295,7 +300,7 @@ if (isset($_POST['lamar'])) {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn-secondary rounded" data-dismiss="modal">Close</button>
-                <button type="submit" name="lamar" class="btn-primary rounded">Lamar Pekerjaan</button>
+                <button type="submit" name="lamar" class="btn-primary rounded" onclick="return confirm('Yakin untuk melamar pekerjaan?')">Lamar Pekerjaan</button>
             </div>
             </form>
         </div>

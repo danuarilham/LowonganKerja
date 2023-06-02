@@ -352,13 +352,99 @@ function ubah_pelamar($data)
     return mysqli_affected_rows($conn);
 }
 
-function cari($keyword)
+function count_all()
 {
-    $query = "SELECT * FROM mahasiswa WHERE
-                nim LIKE '%$keyword%' OR
-                nama LIKE '%$keyword%' OR
-                email LIKE '%$keyword%' OR
-                jurusan LIKE '%$keyword%'";
+    $query = "SELECT
+	info_pekerjaan.id_pekerjaan, 
+	info_pekerjaan.judul, 
+	perusahaan.nama_perusahaan, 
+	perusahaan.logo_perusahaan, 
+	lokasi_pekerjaan.nama_lokasi, 
+	kategori_pekerjaan.nama_kategori, 
+	info_pekerjaan.tipe, 
+	info_pekerjaan.gaji, 
+	info_pekerjaan.pendidikan, 
+	info_pekerjaan.deskripsi
+FROM
+	info_pekerjaan
+	INNER JOIN
+	kategori_pekerjaan
+	ON 
+		info_pekerjaan.id_kategori = kategori_pekerjaan.id_kategori
+	INNER JOIN
+	perusahaan
+	ON 
+		info_pekerjaan.id_perusahaan = perusahaan.id_perusahaan
+	INNER JOIN
+	lokasi_pekerjaan
+	ON 
+		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi";
+
+    return query($query);
+}
+
+function count_cari($keyword, $lokasi)
+{
+    $query = "SELECT
+	info_pekerjaan.id_pekerjaan, 
+	info_pekerjaan.judul, 
+	perusahaan.nama_perusahaan, 
+	perusahaan.logo_perusahaan, 
+	lokasi_pekerjaan.nama_lokasi, 
+	kategori_pekerjaan.nama_kategori, 
+	info_pekerjaan.tipe, 
+	info_pekerjaan.gaji, 
+	info_pekerjaan.pendidikan, 
+	info_pekerjaan.deskripsi
+FROM
+	info_pekerjaan
+	INNER JOIN
+	kategori_pekerjaan
+	ON 
+		info_pekerjaan.id_kategori = kategori_pekerjaan.id_kategori
+	INNER JOIN
+	perusahaan
+	ON 
+		info_pekerjaan.id_perusahaan = perusahaan.id_perusahaan
+	INNER JOIN
+	lokasi_pekerjaan
+	ON 
+		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi WHERE
+                (nama_perusahaan LIKE '%$keyword%' OR
+                judul LIKE '%$keyword%') AND info_pekerjaan.id_lokasi LIKE '%$lokasi%'";
+
+    return query($query);
+}
+
+function cari($keyword, $lokasi, $awalData, $jumlahDataPerHalaman)
+{
+    $query = "SELECT
+	info_pekerjaan.id_pekerjaan, 
+	info_pekerjaan.judul, 
+	perusahaan.nama_perusahaan, 
+	perusahaan.logo_perusahaan, 
+	lokasi_pekerjaan.nama_lokasi, 
+	kategori_pekerjaan.nama_kategori, 
+	info_pekerjaan.tipe, 
+	info_pekerjaan.gaji, 
+	info_pekerjaan.pendidikan, 
+	info_pekerjaan.deskripsi
+FROM
+	info_pekerjaan
+	INNER JOIN
+	kategori_pekerjaan
+	ON 
+		info_pekerjaan.id_kategori = kategori_pekerjaan.id_kategori
+	INNER JOIN
+	perusahaan
+	ON 
+		info_pekerjaan.id_perusahaan = perusahaan.id_perusahaan
+	INNER JOIN
+	lokasi_pekerjaan
+	ON 
+		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi WHERE
+                (nama_perusahaan LIKE '%$keyword%' OR
+                judul LIKE '%$keyword%') AND info_pekerjaan.id_lokasi LIKE '%$lokasi%' LIMIT $awalData, $jumlahDataPerHalaman";
 
     return query($query);
 }

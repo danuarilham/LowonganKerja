@@ -42,11 +42,36 @@ FROM
 	ON 
 		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi LIMIT $awalData, $jumlahDataPerHalaman");
 
+
+
 $info_lokasi = query('SELECT * FROM lokasi_pekerjaan');
 
 // tombol cari ditekan
-if (isset($_POST["cari"])) {
-    $info_pekerjaan = cari($_POST["keyword"]);
+if (isset($_GET["cari"])) {
+
+    // pagination
+    if (!isset($_GET["lokasi"])) {
+        $count_pekerjaan = count_cari($_GET["keyword"], '');
+        $jumlahData = count($count_pekerjaan);
+        $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+        $halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+        $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
+        $info_pekerjaan = cari($_GET["keyword"], '', $awalData, $jumlahDataPerHalaman);
+        $found = $jumlahData;
+        $keyword = $_GET["keyword"];
+    } else {
+        $count_pekerjaan2 = count_cari($_GET["keyword"], $_GET["lokasi"]);
+        $jumlahData = count($count_pekerjaan2);
+        $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+        $halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+        $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
+        $info_pekerjaan = cari($_GET["keyword"], $_GET["lokasi"], $awalData, $jumlahDataPerHalaman);
+        $found = $jumlahData;
+        $keyword = $_GET["keyword"];
+        $lokasi = $_GET["lokasi"];
+    }
+} else {
+    $found = count(count_all());
 }
 ?>
 
@@ -78,13 +103,14 @@ if (isset($_POST["cari"])) {
                 <div class="row">
                     <div class="col-xl-12">
                         <!-- form -->
-                        <form action="" method="post" class="search-box">
+                        <form action="" method="get" class="search-box">
                             <div class="input-form">
-                                <input type="text" placeholder="Job Tittle or keyword">
+                                <input type="text" placeholder="Posisi atau Perusahaan" name="keyword" autocomplete="off">
                             </div>
                             <div class="select-form">
                                 <div class="select-itms">
-                                    <select name="select" id="select1">
+                                    <select name="lokasi" id="select1">
+                                        <option value="" hidden disabled selected>Pilih Lokasi</option>
                                         <?php foreach ($info_lokasi as $row) { ?>
                                             <option value="<?= $row['id_lokasi'] ?>"><?= $row['nama_lokasi'] ?></option>
                                         <?php } ?>
@@ -92,7 +118,9 @@ if (isset($_POST["cari"])) {
                                 </div>
                             </div>
                             <div class="search-form">
-                                <a href="#">Find job</a>
+
+                                <button class="btn btn-primary" type="submit" name="cari">Cari</button>
+
                             </div>
                         </form>
                     </div>
@@ -163,7 +191,7 @@ if (isset($_POST["cari"])) {
                             <!-- select-Categories End -->
                         </div>
                         <!-- single two -->
-                        <div class="single-listing">
+                        <div class="single-listing pb-50">
                             <div class="small-section-tittle2">
                                 <h4>Job Location</h4>
                             </div>
@@ -178,63 +206,7 @@ if (isset($_POST["cari"])) {
                                 </select>
                             </div>
                             <!--  Select job items End-->
-                            <!-- select-Categories start -->
-                            <div class="select-Categories pt-80 pb-50">
-                                <div class="small-section-tittle2">
-                                    <h4>Experience</h4>
-                                </div>
-                                <label class="container">1-2 Years
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">2-3 Years
-                                    <input type="checkbox" checked="checked active">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">3-6 Years
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">6-more..
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <!-- select-Categories End -->
-                        </div>
-                        <!-- single three -->
-                        <div class="single-listing">
-                            <!-- select-Categories start -->
-                            <div class="select-Categories pb-50">
-                                <div class="small-section-tittle2">
-                                    <h4>Posted Within</h4>
-                                </div>
-                                <label class="container">Any
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Today
-                                    <input type="checkbox" checked="checked active">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Last 2 days
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Last 3 days
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Last 5 days
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Last 10 days
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <!-- select-Categories End -->
+
                         </div>
 
                     </div>
@@ -249,9 +221,9 @@ if (isset($_POST["cari"])) {
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="count-job mb-35">
-                                        <span>39, 782 Jobs found</span>
+                                        <span><?= $found ?> Pekerjaan ditemukan</span>
                                         <!-- Select job items start -->
-                                        <div class="select-job-items">
+                                        <!-- <div class="select-job-items">
                                             <span>Sort by</span>
                                             <select name="select">
                                                 <option value="">None</option>
@@ -259,7 +231,7 @@ if (isset($_POST["cari"])) {
                                                 <option value="">job list</option>
                                                 <option value="">job list</option>
                                             </select>
-                                        </div>
+                                        </div> -->
                                         <!--  Select job items End-->
                                     </div>
                                 </div>
@@ -281,7 +253,7 @@ if (isset($_POST["cari"])) {
                                                     <li><strong>
                                                             <?= $row['nama_perusahaan'] ?>
                                                         </strong></li>
-                                                    <li><i class="fas fa-money-bill-alt"></i>Rp. <?= $row['gaji'] ?></li>
+                                                    <li><i class="fas fa-money-bill-alt"></i>Rp. <?= number_format($row['gaji'], 2, ",", ".") ?></li>
                                                 </ul>
                                                 <ul>
                                                     <li><i class="fas fa-map-marker-alt"></i><?= $row['nama_lokasi'] ?></li>
@@ -293,7 +265,10 @@ if (isset($_POST["cari"])) {
                                             </div>
                                         </div>
                                         <div class="f-right">
-                                            <a class="genric-btn danger-border circle" href="job_details.php?id=<?= $row['id_pekerjaan'] ?>"><?= $row['tipe'] ?></a>
+                                        <a class="genric-btn <?php if ($row['tipe'] == "Full Time") {
+                                            echo "danger"; } else if ($row['tipe'] == "Part Time") {
+                                            echo "primary"; } else {
+                                            echo "success"; } ?>-border circle" href="job_details.php?id=<?= $row['id_pekerjaan'] ?>"><?= $row['tipe'] ?></a>
                                             <!-- <span>7 hours ago</span> -->
                                         </div>
                                     </div>
@@ -315,10 +290,26 @@ if (isset($_POST["cari"])) {
                     <div class="single-wrap d-flex justify-content-center">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-start">
-                                <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                                <li class="page-item"><a class="page-link" href="#">02</a></li>
-                                <li class="page-item"><a class="page-link" href="#">03</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><span class="ti-angle-right"></span></a></li>
+                                <?php if ($halamanAktif > 1) { ?>
+                                    <li class="page-item"><a class="page-link" href="?keyword=<?php echo (isset($_GET["cari"])) ? $keyword : "" ?>&lokasi=<?php echo (isset($_GET["lokasi"])) ? $lokasi : "" ?>&cari=&halaman=<?= $halamanAktif - 1; ?>"><span class="ti-angle-left"></span></a></li>
+                                <?php } ?>
+
+                                <?php for ($i = 1; $i <= $jumlahHalaman; $i++) { ?>
+                                    <?php if ($i == $halamanAktif) { ?>
+                                        <li class="page-item active">
+                                            <a href="?keyword=<?php echo (isset($_GET["cari"])) ? $keyword : "" ?>&lokasi=<?php echo (isset($_GET["lokasi"])) ? $lokasi : "" ?>&cari=&halaman=<?= $i ?>" class="page-link"><?= $i; ?></a>
+                                        </li>
+                                    <?php } else { ?>
+                                        <li class="page-item">
+                                            <a href="?keyword=<?php echo (isset($_GET["cari"])) ? $keyword : "" ?>&lokasi=<?php echo (isset($_GET["lokasi"])) ? $lokasi : "" ?>&cari=&halaman=<?= $i ?>" class="page-link"><?= $i; ?></a>
+                                        </li>
+                                    <?php } ?>
+                                <?php } ?>
+
+                                <?php if ($halamanAktif < $jumlahHalaman) { ?>
+                                    <li class="page-item"><a class="page-link" href="?keyword=<?php echo (isset($_GET["cari"])) ? $keyword : "" ?>&lokasi=<?php echo (isset($_GET["lokasi"])) ? $lokasi : "" ?>&cari=&halaman=<?= $halamanAktif + 1; ?>"><span class=" ti-angle-right"></span></a></li>
+                                <?php } ?>
+
                             </ul>
                         </nav>
                     </div>
@@ -326,7 +317,6 @@ if (isset($_POST["cari"])) {
             </div>
         </div>
     </div>
-    <!--Pagination End  -->
-
 </main>
+
 <?php include 'js.php' ?>
