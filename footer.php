@@ -33,6 +33,7 @@ $jumlahPerusahaan = count(query("SELECT id_perusahaan FROM perusahaan"));
                                 </li>
                                 <li><a href="#">Telepon : +62 81233456789</a></li>
                                 <li><a href="#">Email : ingfoloker@upi.edu</a></li>
+                                <li><a href="#">Instagram : ingfolokerbdg</a></li>
                             </ul>
                         </div>
 
