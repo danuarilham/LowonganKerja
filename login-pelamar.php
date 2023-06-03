@@ -5,6 +5,9 @@ require 'functions.php';
 if (isset($_SESSION["login_pelamar"])) {
   header("Location: user/index.php");
   exit;
+} else if (isset($_SESSION["login_perusahaan"])) {
+  header("Location: perusahaan/index.php");
+  exit;
 }
 
 
