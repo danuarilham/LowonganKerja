@@ -3,18 +3,11 @@
 //To Handle Session Variables on This Page
 session_start();
 
-//If user Not logged in then redirect them back to homepage. 
-// if(empty($_SESSION['id_company'])) {
-//   header("Location: ../index.php");
-//   exit();
-// }
-
 if (!isset($_SESSION["login_perusahaan"])) {
   header("Location: ../login-perusahaan.php");
   exit;
 }
 
-// require_once("../db.php");
 require '../functions.php';
 
 $id_perusahaan = $_SESSION['id_perusahaan'];
