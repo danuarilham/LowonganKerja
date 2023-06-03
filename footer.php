@@ -43,7 +43,7 @@ $jumlahPerusahaan = count(query("SELECT id_perusahaan FROM perusahaan"));
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                     <!-- logo -->
                     <div class="footer-logo mb-20">
-                        <a href="index.php"><img src="assets/img/logo/logo2.png" alt="" width="200" class="rounded"></a>
+                        <a href="index.php"><img src="assets/img/logo/logo3.png" alt="" width="200" class="rounded"></a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
