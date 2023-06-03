@@ -112,7 +112,7 @@ FROM
                 <h5 class="mb-4"><strong>Tanggal melamar : </strong><?= $detail_lamaran['tanggal_lamar'] ?></h5>
 
                 <!-- tabel pelamar -->
-                <h5 class="mb-4"><strong>Resume saya :</strong></h5>
+                <h5 class="mb-4"><strong>Resume :</strong></h5>
                 <div class="border p-2 w-75 mx-auto">
                     <div class="mb-3">
                         <img src="../upload/user/foto/<?= $detail_lamaran['foto_pelamar'] ?>" class=" mb-3 img-responsive center-block d-block img-thumbnail" style="width: 170px;" alt="Avatar" />

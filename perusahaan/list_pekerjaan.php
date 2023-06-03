@@ -38,6 +38,27 @@ FROM
 	ON 
 		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi WHERE info_pekerjaan.id_perusahaan = $id_perusahaan");
 
+// cek apakah tombol submit sudah ditekan atau belum
+if (isset($_POST['hapus_pekerjaan'])) {
+    // cek apakah data berhasil dihapus atau tidak
+    if (hapus_pekerjaan($_POST) > 0) {
+        echo "
+            <script>
+                alert('Data lowongan kerja berhasil dihapus!');
+                document.location.href = 'list_pekerjaan.php';
+            </script>
+        ";
+    } else {
+        echo "
+            <script>
+                alert('Data lowongan kerja gagal dihapus!');
+                document.location.href = 'list_pekerjaan.php';
+            </script>
+        ";
+    }
+}
+
+
 ?>
 
 <?php $title = 'Pekerjaan & Pelamar' ?>
@@ -105,6 +126,17 @@ FROM
                                             <i class="ti-pencil"></i>
                                             <a href="edit_pekerjaan.php?jobid=<?= $row['id_pekerjaan'] ?>">Edit Pekerjaan</a>
                                         </button>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <form action="" method="post">
+                                            <input type="hidden" name="id_pekerjaan" value="<?= $row['id_pekerjaan'] ?>">
+                                            <button type="submit" class="btn-danger rounded-lg mb-2" onclick="return confirm('Yakin untuk menghapus lowongan pekerjaan?')" name="hapus_pekerjaan">
+                                                <i class="ti-close"></i>
+                                                Hapus Pekerjaan
+                                            </button>
+                                        </form>
                                     </li>
                                 </ul>
                             </div>

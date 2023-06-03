@@ -505,3 +505,14 @@ function registrasi_perusahaan($data)
 
     return mysqli_affected_rows($conn);
 }
+
+function hapus_pekerjaan($id)
+{
+    global $conn;
+
+    $id_pekerjaan = $id["id_pekerjaan"];
+
+    mysqli_query($conn, "DELETE FROM info_pekerjaan WHERE id_pekerjaan = $id_pekerjaan");
+
+    return mysqli_affected_rows($conn);
+}
