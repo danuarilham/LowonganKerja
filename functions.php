@@ -13,29 +13,6 @@ function query($query)
     return $rows;
 }
 
-function tambah($data)
-{
-    global $conn;
-
-    $nim = htmlspecialchars($data["nim"]);
-    $nama = htmlspecialchars($data["nama"]);
-    $email = htmlspecialchars($data["email"]);
-    $jurusan = htmlspecialchars($data["jurusan"]);
-
-    // upload gambar
-    $gambar = upload();
-
-    if (!$gambar) {
-        return false;
-    }
-
-
-    $query = "INSERT INTO mahasiswa VALUES ('', '$nim', '$nama', '$email', '$jurusan', '$gambar')";
-    mysqli_query($conn, $query);
-
-    return mysqli_affected_rows($conn);
-}
-
 function tambah_pekerjaan($data)
 {
     global $conn;
@@ -48,8 +25,13 @@ function tambah_pekerjaan($data)
     $id_kategori = $data["id_kategori"];
     $id_lokasi = $data["id_lokasi"];
     $deskripsi = htmlspecialchars($data["deskripsi"]);
+    $gender = htmlspecialchars($data["gender"]);
+    $tanggung_jawab = htmlspecialchars($data["tanggung_jawab"]);
+    $keahlian = htmlspecialchars($data["keahlian"]);
+    $waktu_bekerja = htmlspecialchars($data["waktu_bekerja"]);
 
-    $query = "INSERT INTO info_pekerjaan VALUES ('', $id_perusahaan, $id_lokasi, $id_kategori, '$judul', '$tipe', '$gaji', '$pendidikan', '$deskripsi')";
+    $query = "INSERT INTO info_pekerjaan VALUES ('', $id_perusahaan, $id_lokasi, $id_kategori, '$judul', '$tipe', '$gaji', '$pendidikan', '$deskripsi', '$gender', '$tanggung_jawab', '$keahlian', '$waktu_bekerja')";
+    
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
@@ -227,45 +209,6 @@ function upload_foto_pelamar()
     return $namaFileBaru;
 }
 
-function hapus($id)
-{
-    global $conn;
-
-    mysqli_query($conn, "DELETE FROM mahasiswa WHERE id = $id");
-
-    return mysqli_affected_rows($conn);
-}
-
-function ubah($data)
-{
-    global $conn;
-
-    $id = $data["id"];
-    $nim = htmlspecialchars($data["nim"]);
-    $nama = htmlspecialchars($data["nama"]);
-    $email = htmlspecialchars($data["email"]);
-    $jurusan = htmlspecialchars($data["jurusan"]);
-    $gambarLama = htmlspecialchars($data["gambarLama"]);
-
-    if ($_FILES['gambar']['error'] === 4) {
-        $gambar = $gambarLama;
-    } else {
-        $gambar = upload();
-    }
-
-    $query = "UPDATE mahasiswa SET 
-                nim = '$nim', 
-                nama = '$nama', 
-                email = '$email', 
-                jurusan = '$jurusan', 
-                gambar = '$gambar' 
-                WHERE id = $id
-            ";
-    mysqli_query($conn, $query);
-
-    return mysqli_affected_rows($conn);
-}
-
 function ubah_perusahaan($data)
 {
     global $conn;
@@ -296,6 +239,41 @@ function ubah_perusahaan($data)
                 logo_perusahaan = '$gambar' 
                 WHERE id_perusahaan = $id
             ";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+function ubah_pekerjaan($data)
+{
+    global $conn;
+
+    $id_pekerjaan = $data["id_pekerjaan"];
+    $judul = htmlspecialchars($data["judul"]);
+    $tipe = htmlspecialchars($data["tipe"]);
+    $pendidikan = htmlspecialchars($data["pendidikan"]);
+    $gaji = htmlspecialchars($data["gaji"]);
+    $id_kategori = $data["id_kategori"];
+    $deskripsi = htmlspecialchars($data["deskripsi"]);
+    $gender = htmlspecialchars($data["gender"]);
+    $tanggung_jawab = htmlspecialchars($data["tanggung_jawab"]);
+    $keahlian = htmlspecialchars($data["keahlian"]);
+    $waktu_bekerja = htmlspecialchars($data["waktu_bekerja"]);
+
+    $query = "UPDATE info_pekerjaan SET 
+                id_kategori = $id_kategori, 
+                judul = '$judul', 
+                tipe = '$tipe', 
+                gaji = '$gaji', 
+                pendidikan = '$pendidikan', 
+                deskripsi = '$deskripsi', 
+                gender = '$gender', 
+                tanggung_jawab = '$tanggung_jawab', 
+                keahlian = '$keahlian', 
+                waktu_bekerja = '$waktu_bekerja'
+                WHERE id_pekerjaan = $id_pekerjaan
+            ";
+
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
@@ -526,13 +504,4 @@ function registrasi_perusahaan($data)
     mysqli_query($conn, "INSERT INTO perusahaan(id_perusahaan, username_perusahaan, password_perusahaan, email_perusahaan, nama_perusahaan, telepon_perusahaan, id_lokasi) VALUES('', '$username', '$password', '$username', '$nama_perusahaan', '$telepon_perusahaan', $id_lokasi)");
 
     return mysqli_affected_rows($conn);
-}
-
-function pagination()
-{
-    $jumlahDataPerHalaman = 3;
-    $jumlahData = count(query("SELECT * FROM mahasiswa"));
-    $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
-    $halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
-    $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 }

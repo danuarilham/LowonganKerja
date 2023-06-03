@@ -3,14 +3,15 @@
 //To Handle Session Variables on This Page
 session_start();
 
-if (!isset($_SESSION["login_pelamar"])) {
-    header("Location: ../login-pelamar.php");
+if (!isset($_SESSION["login_perusahaan"])) {
+    header("Location: ../login-perusahaan.php");
     exit;
 }
 
 require '../functions.php';
 
-$id_pelamar = $_SESSION['id_pelamar'];
+$id_perusahaan = $_SESSION['id_perusahaan'];
+$id_pekerjaan = $_GET["jobid"];
 $id_lamaran = $_GET["id"];
 
 $detail_lamaran = query("SELECT
@@ -57,12 +58,13 @@ FROM
 <section class="breadcrumb" id="home-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-7 mt-10 mb-10">
+            <div class="col-md-7 mt-8 mb-8">
                 <h1 class="text-black font-weight-bold">Dashboard</h1>
                 <div class="custom-breadcrumbs">
                     <a href="index.php"><span style="color: black;">Dashboard</span></a> <span class="mx-2 slash">/</span>
-                    <a href="lamaran_kerja.php"><span style="color: black;">Lamaran Kerja</span></a> <span class="mx-2 slash">/</span>
-                    <span class="text-black"><strong>Detail Lamaran</strong></span>
+                    <a href="list_pekerjaan.php"><span style="color: black;">Daftar Pekerjaan</span></a> <span class="mx-2 slash">/</span>
+                    <a href="list_pelamar.php?jobid=<?= $id_pekerjaan ?>"><span style="color: black;">Daftar Pelamar</span></a> <span class="mx-2 slash">/</span>
+                    <span class="text-black"><strong>Detail Pelamar</strong></span>
                 </div>
             </div>
         </div>
@@ -76,7 +78,7 @@ FROM
             <?php include 'dashboard.php' ?>
             <div class="col-lg-8 container">
 
-                <h3 class="mb-4"><a href="lamaran_kerja.php" class="btn-link text-decoration-none ">
+                <h3 class="mb-4"><a href="list_pelamar.php?jobid=<?= $id_pekerjaan ?>" class="btn-link text-decoration-none ">
                         <i class="ti-arrow-circle-left"></i>
                     </a> &nbsp; Detail Lamaran</h3>
 

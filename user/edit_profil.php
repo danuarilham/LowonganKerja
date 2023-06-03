@@ -72,7 +72,7 @@ if (isset($_POST['update_profil_pelamar'])) {
           <!-- nama lengkap -->
           <div class="col-md-12 mb-3">
             <label for="nama_pelamar" class="form-label">Nama Lengkap <span style="color:red"> *</span></label>
-            <input type="text" class="form-control" id="nama_pelamar" name="nama_pelamar" value="<?= $info['nama_pelamar'] ?>" required>
+            <input type="text" class="form-control" id="nama_pelamar" name="nama_pelamar" value="<?= $info['nama_pelamar'] ?>" required autocomplete="off">
           </div>
 
           <!-- email -->
@@ -84,7 +84,7 @@ if (isset($_POST['update_profil_pelamar'])) {
           <!-- telepon -->
           <div class="col-md-12 mb-3">
             <label for="telepon" class="form-label">Nomor Telepon / WA <span style="color:red"> *</span></label>
-            <input type="text" class="form-control" id="telepon" name="telepon_pelamar" value="<?= $info['telepon_pelamar'] ?>" required>
+            <input type="text" class="form-control" id="telepon" name="telepon_pelamar" value="<?= $info['telepon_pelamar'] ?>" required autocomplete="off">
           </div>
 
           <!-- jenis kelamin -->
@@ -126,7 +126,7 @@ if (isset($_POST['update_profil_pelamar'])) {
           <!-- kota kabupaten -->
           <div class="col-md-12 mb-3">
             <label for="kota_kab" class="form-label">Kota / Kabupaten <span style="color:red"> *</span></label>
-            <input type="text" class="form-control" id="kota_kab" name="kota_kab_pelamar" value="<?= $info['kota_kab_pelamar'] ?>" required>
+            <input type="text" class="form-control" id="kota_kab" name="kota_kab_pelamar" value="<?= $info['kota_kab_pelamar'] ?>" required autocomplete="off">
           </div>
 
           <!-- pendidikan terakhir -->

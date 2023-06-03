@@ -96,7 +96,7 @@ $lokasi = query("SELECT * FROM lokasi_pekerjaan");
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="text-black" for="username_perusahaan">Email <span style="color:red"> *</span></label>
-              <input type="text" id="username_perusahaan" class="form-control" placeholder="Email address" name="username_perusahaan" required>
+              <input type="email" id="username_perusahaan" class="form-control" placeholder="Email address" name="username_perusahaan" required>
             </div>
           </div>
           <div class="row form-group">

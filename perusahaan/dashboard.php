@@ -25,7 +25,7 @@ $dashboard = query("SELECT * FROM perusahaan WHERE id_perusahaan = $id_perusahaa
                     <li>
                         <a href="profil_perusahaan.php" class="nav-link link-dark <?php echo ($title == 'Profil Perusahaan') ?  "active" : "" ?> " style="<?php echo ($title == 'Profil Perusahaan') ?  "" : "color: black;" ?>">
                             <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#speedometer2" />
+                                <use xlink:href="#toggles2" />
                             </svg>
                             &nbsp; Profil Perusahaan
                         </a>
@@ -33,7 +33,7 @@ $dashboard = query("SELECT * FROM perusahaan WHERE id_perusahaan = $id_perusahaa
                     <li>
                         <a href="lowongan.php" class="nav-link link-dark <?php echo ($title == 'Buat Lowongan Kerja') ?  "active" : "" ?> " style="<?php echo ($title == 'Buat Lowongan Kerja') ?  "" : "color: black;" ?>">
                             <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#table" />
+                                <use xlink:href="#collection" />
                             </svg>
                             &nbsp; Buat Lowongan Kerja
                         </a>

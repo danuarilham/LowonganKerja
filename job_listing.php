@@ -82,24 +82,40 @@ if (isset($_GET["cari"])) {
 <?php include 'navbar.php' ?>
 
 
-<main>
 
-    <!-- Hero Area Start-->
-    <div class="slider-area ">
-        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/headertapibiru.png">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hero-cap text-center">
-                            <h2 style="font-size: 35px;">Temukan pekerjaan yang akan Anda sukai.</h2>
-                        </div>
+<!-- Hero Area Start-->
+<div class="slider-area ">
+    <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/headertapibiru.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2 style="font-size: 35px;">Temukan pekerjaan yang akan Anda sukai.</h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Hero Area End -->
-    
+</div>
+<!-- Hero Area End -->
+
+<!-- breadcumb -->
+<!-- <section class="breadcrumb" id="home-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 mt-10 mb-10">
+                    <div class="custom-breadcrumbs">
+                        <a href="index.php" class="btn-link">Dashboard</span></a> <span class="mx-2 slash">/</span>
+                        
+                        <span class="text-black"><strong>Lowongan Kerja</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+<!-- breadcumb end -->
+
+<main>
     <!-- Search Box -->
     <div class="slider-area mt-3">
         <div class="d-flex align-items-center">
@@ -108,9 +124,9 @@ if (isset($_GET["cari"])) {
                 <div class="row">
                     <div class="col-xl-12">
                         <!-- form -->
-                        <form action="" method="get" class="search-box shadow">
+                        <form action="" method="get" class="search-box">
                             <div class="input-form">
-                                <input type="text" placeholder="Posisi atau Perusahaan" name="keyword" autocomplete="off">
+                                <input type="text" placeholder="Posisi atau Perusahaan" name="keyword" autocomplete="off" autofocus value="<?php echo (isset($_GET["cari"])) ? $keyword : "" ?>">
                             </div>
                             <div class="select-form">
                                 <div class="select-itms">
@@ -123,7 +139,9 @@ if (isset($_GET["cari"])) {
                                 </div>
                             </div>
                             <div class="search-form">
+
                                 <button class="btn btn-primary" type="submit" name="cari">Cari</button>
+
                             </div>
                         </form>
                     </div>
@@ -240,7 +258,7 @@ if (isset($_GET["cari"])) {
                                                     <li><strong>
                                                             <?= $row['nama_perusahaan'] ?>
                                                         </strong></li>
-                                                    <li><i class="fas fa-money-bill-alt"></i>Rp. <?= number_format($row['gaji'], 2, ",", ".") ?></li>
+                                                    <li><i class="fas fa-money-bill-alt"></i><?= $row['gaji'] ?></li>
                                                 </ul>
                                                 <ul>
                                                     <li><i class="fas fa-map-marker-alt"></i><?= $row['nama_lokasi'] ?></li>

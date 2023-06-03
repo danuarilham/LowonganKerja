@@ -105,7 +105,7 @@ if (isset($_GET["cari"])) {
                         <!-- form -->
                         <form action="" method="get" class="search-box">
                             <div class="input-form">
-                                <input type="text" placeholder="Posisi atau Perusahaan" name="keyword" autocomplete="off">
+                                <input type="text" placeholder="Posisi atau Perusahaan" name="keyword" autocomplete="off" autofocus value="<?php echo (isset($_GET["cari"])) ? $keyword : "" ?>">
                             </div>
                             <div class="select-form">
                                 <div class="select-itms">
@@ -237,7 +237,7 @@ if (isset($_GET["cari"])) {
                                                     <li><strong>
                                                             <?= $row['nama_perusahaan'] ?>
                                                         </strong></li>
-                                                    <li><i class="fas fa-money-bill-alt"></i>Rp. <?= number_format($row['gaji'], 2, ",", ".") ?></li>
+                                                    <li><i class="fas fa-money-bill-alt"></i><?= $row['gaji'] ?></li>
                                                 </ul>
                                                 <ul>
                                                     <li><i class="fas fa-map-marker-alt"></i><?= $row['nama_lokasi'] ?></li>

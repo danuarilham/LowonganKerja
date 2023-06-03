@@ -84,25 +84,25 @@ if (isset($_POST['update_profil_perusahaan'])) {
                 <input type="hidden" name="id" id="id" value="<?= $info["id_perusahaan"]; ?>">
                 <input type="hidden" name="gambarLama" id="gambarLama" value="<?= $info["logo_perusahaan"]; ?>">
 
-                <div class="col-md-6 mb-3">
+                <div class="col-md-12 mb-3">
                   <label for="nama" class="form-label">Nama Perusahaan <span style="color:red"> *</span></label>
-                  <input type="text" class="form-control" id="nama_perusahaan" name="nama_perusahaan" value="<?= $info['nama_perusahaan'] ?>" required>
+                  <input type="text" class="form-control" id="nama_perusahaan" name="nama_perusahaan" value="<?= $info['nama_perusahaan'] ?>" required autocomplete="off">
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-12 mb-3">
                   <label for="website" class="form-label">Website</label>
-                  <input type="text" class="form-control" id="website" name="website_perusahaan" value="<?= $info['website_perusahaan'] ?>">
+                  <input type="text" class="form-control" id="website" name="website_perusahaan" value="<?= $info['website_perusahaan'] ?>" autocomplete="off">
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-12 mb-3">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" name="email_perusahaan" value="<?= $info['email_perusahaan'] ?>" readonly>
+                  <input type="email" class="form-control" id="email" name="email_perusahaan" value="<?= $info['email_perusahaan'] ?>" readonly autocomplete="off">
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-12 mb-3">
                   <label for="telepon" class="form-label">Nomor HP/Telepon</label>
-                  <input type="text" class="form-control" id="telepon" name="telepon_perusahaan" value="<?= $info['telepon_perusahaan'] ?>">
+                  <input type="tel" class="form-control" id="telepon" name="telepon_perusahaan" value="<?= $info['telepon_perusahaan'] ?>" autocomplete="off">
                 </div>
-                <div class="col-md-6 mb-6 mb-md-0">
+                <div class="col-md-12 mb-3">
                   <label class="text-black" for="fname">Lokasi</label>
-                  <select name="id_lokasi" class="form-select">
+                  <select name="id_lokasi" class="form-select" required>
                     <?php foreach ($lokasi as $row) { ?>
                       <?php if ($row['id_lokasi'] == $info['id_lokasi']) { ?>
                         <option value="<?= $row['id_lokasi'] ?>" selected><?= $row['nama_lokasi'] ?></option>
@@ -113,15 +113,15 @@ if (isset($_POST['update_profil_perusahaan'])) {
                   </select>
                 </div>
 
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <label class="text-black" for="tentang">Tentang</label>
+                <div class="col-md-12 mb-3">
+                  <label class="text-black" for="tentang">Tentang Perusahaan</label>
                   <textarea name="tentang" id="tentang" cols="30" rows="5" class="form-control"><?= $info['tentang'] ?></textarea>
                 </div>
-                <div class="col-md-6 mb-3 mb-md-0">
+                <div class="col-md-12 mb-4">
                   <label class="text-black" for="logo">Logo Perusahaan</label>
                   <input type="file" accept="image/*" class="form-control-file" name="gambar">
                 </div>
-                <div class="col-12 mt-4 mb-5">
+                <div class="col-12 mb-5">
                   <button type="submit" class="btn btn-primary" name="update_profil_perusahaan">Perbarui Profil Perusahaan</button>
                 </div>
               </form>

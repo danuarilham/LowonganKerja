@@ -64,7 +64,7 @@ FROM
         <div class="row">
             <?php include 'dashboard.php' ?>
             <div class="col-md-8 bg-white padding-2 container">
-                <h3 class="mb-4">Daftar Pekerjaan</h3>
+                <h3 class="mb-4">Pekerjaan yang Diposting</h3>
                 <?php foreach ($info_pekerjaan as $row) { ?>
                     <div class="shadow-sm">
                         <div class="single-job-items mb-30">
@@ -78,11 +78,11 @@ FROM
                                     </a>
                                     <ul>
                                         <li><?= $row['nama_perusahaan'] ?></li>
-                                        <li><i class="fas fa-money-bill-alt"></i>Rp. <?= $row['gaji'] ?></li>
+                                        <li><i class="fas fa-money-bill-alt"></i><?= $row['gaji'] ?></li>
                                     </ul>
                                     <ul>
                                         <li><i class="fas fa-map-marker-alt"></i><?= $row['nama_lokasi'] ?></li>
-                                        <li><i class="fas fa-university"></i><?= $row['pendidikan'] ?></li>
+                                        <li><i class="fas fa-graduation-cap"></i><?= $row['pendidikan'] ?></li>
                                     </ul>
                                     <ul>
                                         <li><i class="fas fa-clock"></i><?= $row['tipe'] ?></li>
@@ -95,15 +95,15 @@ FROM
                                     <li>
                                         <button class="btn-primary rounded-lg mb-2">
                                             <i class="ti-user"></i>
-                                            <a href="list_pelamar.php?id=<?= $row['id_pekerjaan'] ?>">Daftar Pelamar</a>
+                                            <a href="list_pelamar.php?jobid=<?= $row['id_pekerjaan'] ?>">Daftar Pelamar</a>
                                         </button>
                                     </li>
                                 </ul>
                                 <ul>
                                     <li>
-                                        <button class="btn-success rounded-lg">
+                                        <button class="btn-success rounded-lg mb-2">
                                             <i class="ti-pencil"></i>
-                                            <a href="list_pelamar.php?id=<?= $row['id_pekerjaan'] ?>">Edit Pekerjaan</a>
+                                            <a href="edit_pekerjaan.php?jobid=<?= $row['id_pekerjaan'] ?>">Edit Pekerjaan</a>
                                         </button>
                                     </li>
                                 </ul>
@@ -116,7 +116,5 @@ FROM
     </div>
 </main>
 <!-- JS here -->
-
-<?php include 'js.php' ?>
 
 </body>

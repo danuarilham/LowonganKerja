@@ -45,7 +45,7 @@ $info = query("SELECT * FROM pelamar WHERE id_pelamar = $id_pelamar")[0];
           echo '
               <div class="alert alert-info alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <i class="icon fa fa-info"></i> &nbsp; Penting! Untuk melamar pekerjaan, pastikan profil Anda telah dilengkapi dengan baik dan resume terbaru Anda telah diunggah. Terima kasih!
+                <i class="icon fa fa-info"></i> &nbsp; Penting! Untuk melamar pekerjaan, pastikan profil Anda telah dilengkapi dengan baik dan CV terbaru Anda telah diunggah. Terima kasih!
               </div>';
         } else {
           echo '

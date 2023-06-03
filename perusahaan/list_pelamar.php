@@ -11,7 +11,7 @@ if (!isset($_SESSION["login_perusahaan"])) {
 require '../functions.php';
 
 $id_perusahaan = $_SESSION['id_perusahaan'];
-$id_pekerjaan = $_GET["id"];
+$id_pekerjaan = $_GET["jobid"];
 
 $info_pekerjaan = query("SELECT
 	info_pekerjaan.id_pekerjaan, 
@@ -157,7 +157,7 @@ FROM
                                 <td class="align-middle"><small>
                                     <?= $row['tanggal_lamar'] ?>
                                 </small></td>
-                                <td class="align-middle"><button class="btn-primary rounded" type="button"><small>Detail</small></button></td>
+                                <td class="align-middle"><button class="btn-primary rounded" type="button"><a href="detail_lamaran.php?jobid=<?= $id_pekerjaan ?>&id=<?= $row['id_lamaran'] ?>"><small>Detail</small><a></button></td>
                             </tr>
                             <?php $i++ ?>
                         <?php } ?>

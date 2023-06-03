@@ -11,19 +11,14 @@ require '../functions.php';
 $id_pekerjaan = $_GET["id"];
 
 $info = query("SELECT
-	info_pekerjaan.id_pekerjaan, 
-	info_pekerjaan.judul, 
+	info_pekerjaan.*, 
 	perusahaan.nama_perusahaan, 
 	perusahaan.tentang, 
 	perusahaan.website_perusahaan, 
 	perusahaan.email_perusahaan, 
 	perusahaan.logo_perusahaan, 
 	lokasi_pekerjaan.nama_lokasi, 
-	kategori_pekerjaan.nama_kategori, 
-	info_pekerjaan.tipe, 
-	info_pekerjaan.gaji, 
-	info_pekerjaan.pendidikan, 
-	info_pekerjaan.deskripsi
+	kategori_pekerjaan.nama_kategori
 FROM
 	info_pekerjaan
 	INNER JOIN
@@ -108,7 +103,7 @@ if (isset($_POST['lamar'])) {
                                         <li><strong>
                                                 <?= $info['nama_perusahaan'] ?>
                                             </strong></li>
-                                        <li><i class="fas fa-money-bill-alt"></i>Rp. <?= number_format($info['gaji'], 2, ",", ".") ?></li>
+                                        <li><i class="fas fa-money-bill-alt"></i><?= $info['gaji'] ?></li>
                                     </ul>
                                     <ul>
                                         <li><i class="fas fa-map-marker-alt"></i><?= $info['nama_lokasi'] ?></li>
@@ -125,37 +120,28 @@ if (isset($_POST['lamar'])) {
 
                     <div class="job-post-details">
                         <div class="post-details1 mb-50">
-                            <!-- Small Section Tittle -->
-                            <div class="small-section-tittle">
-                                <h4>Deskripsi Pekerjaan</h4>
-                            </div>
                             <p><?= $info['deskripsi'] ?></p>
                         </div>
                         <div class="post-details2  mb-50">
                             <!-- Small Section Tittle -->
                             <div class="small-section-tittle">
-                                <h4>Required Knowledge, Skills, and Abilities</h4>
+                                <h4>Tanggung Jawab Pekerjaan : </h4>
                             </div>
-                            <ul>
-                                <li>System Software Development</li>
-                                <li>Mobile Applicationin iOS/Android/Tizen or other platform</li>
-                                <li>Research and code , libraries, APIs and frameworks</li>
-                                <li>Strong knowledge on software development life cycle</li>
-                                <li>Strong problem solving and debugging skills</li>
-                            </ul>
+                            <div style="white-space: pre-wrap;"><?= $info['tanggung_jawab'] ?></div>
                         </div>
                         <div class="post-details2  mb-50">
                             <!-- Small Section Tittle -->
                             <div class="small-section-tittle">
-                                <h4>Education + Experience</h4>
+                                <h4>Keahlian : </h4>
                             </div>
-                            <ul>
-                                <li>3 or more years of professional design experience</li>
-                                <li>Direct response email experience</li>
-                                <li>Ecommerce website design experience</li>
-                                <li>Familiarity with mobile and web apps preferred</li>
-                                <li>Experience using Invision a plus</li>
-                            </ul>
+                            <div style="white-space: pre-wrap;"><?= $info['keahlian'] ?></div>
+                        </div>
+                        <div class="post-details2  mb-50">
+                            <!-- Small Section Tittle -->
+                            <div class="small-section-tittle">
+                                <h4>Waktu Bekerja : </h4>
+                            </div>
+                            <p><?= $info['waktu_bekerja'] ?></p>
                         </div>
                     </div>
 
@@ -168,18 +154,19 @@ if (isset($_POST['lamar'])) {
                             <h4>Ringkasan Pekerjaan</h4>
                         </div>
                         <ul>
-                            <li>Posisi : <span><?= $info['judul'] ?></span></li>
-                            <li>Kategori Pekerjaan : <span><?= $info['nama_kategori'] ?></span></li>
-                            <li>Tingkat Pendidikan : <span><?= $info['pendidikan'] ?></span></li>
-                            <li>Lokasi : <span><?= $info['nama_lokasi'] ?></span></li>
+                            <li><strong>Posisi : </strong><span><?= $info['judul'] ?></span></li>
+                            <li><strong>Kategori Pekerjaan : </strong><span><?= $info['nama_kategori'] ?></span></li>
+                            <li><strong>Tingkat Pendidikan : </strong><span><?= $info['pendidikan'] ?></span></li>
+                            <li><strong>Lokasi : </strong><span><?= $info['nama_lokasi'] ?></span></li>
+                            <li><strong>Gender : </strong><span><?= $info['gender'] ?></span></li>
                             <!-- <li>Vacancy : <span>02</span></li> -->
-                            <li>Status Kerja : <span><?= $info['tipe'] ?></span></li>
-                            <li>Besaran Gaji : <span>Rp. <?= number_format($info['gaji'], 2, ",", ".") ?></span></li>
+                            <li><strong>Status Kerja : </strong><span><?= $info['tipe'] ?></span></li>
+                            <li><strong>Besaran Gaji : </strong><span><?= $info['gaji'] ?></span></li>
                             <!-- <li>Application date : <span>12 Sep 2020</span></li> -->
                         </ul>
                         <!-- Button trigger modal -->
                         <div class="apply-btn2">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formLamar">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<?php echo ($pelamar['status_akun'] == 1) ? "formLamar" : "formLamar2" ?>">
                                 Lamar Pekerjaan
                             </button>
                         </div>
@@ -303,6 +290,27 @@ if (isset($_POST['lamar'])) {
                 <button type="submit" name="lamar" class="btn-primary rounded" onclick="return confirm('Yakin untuk melamar pekerjaan?')">Lamar Pekerjaan</button>
             </div>
             </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 2 -->
+<div class="modal fade" id="formLamar2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Informasi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Profil Anda belum Lengkap!</strong> Untuk melamar pekerjaan, pastikan profil Anda telah dilengkapi dengan baik dan CV terbaru Anda telah diunggah.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary rounded" data-dismiss="modal">Close</button>
+                <button type="button" class="btn-primary rounded"><a href="edit_profil.php">Lengkapi Profil</a></button>
+            </div>
         </div>
     </div>
 </div>

@@ -65,7 +65,7 @@ if (isset($_POST['login_perusahaan'])) {
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="text-black" for="email">Email</label>
-              <input type="text" id="email" class="form-control" placeholder="Email address" name="username" required>
+              <input type="email" id="email" class="form-control" placeholder="Email address" name="username" required>
             </div>
           </div>
           <div class="row form-group mb-4">
