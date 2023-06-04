@@ -1,7 +1,7 @@
 <?php
-$jumlahLoker = count(query("SELECT id_pekerjaan FROM info_pekerjaan"));
-$jumlahPelamar = count(query("SELECT id_pelamar FROM pelamar"));
-$jumlahPerusahaan = count(query("SELECT id_perusahaan FROM perusahaan"));
+$jumlahLoker = query("SELECT count(*) FROM info_pekerjaan")[0];
+$jumlahPelamar = query("SELECT count(*) FROM pelamar")[0];
+$jumlahPerusahaan = query("SELECT count(*) FROM perusahaan")[0];
 
 ?>
 
@@ -49,20 +49,20 @@ $jumlahPerusahaan = count(query("SELECT id_perusahaan FROM perusahaan"));
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                     <div class="footer-tittle-bottom">
-                        <span><?= $jumlahLoker - 1 ?>+</span>
+                        <span><?= $jumlahLoker['count(*)'] - 1 ?>+</span>
                         <p>Lowongan Pekerjaan</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                     <div class="footer-tittle-bottom">
-                        <span><?= $jumlahPelamar ?></span>
+                        <span><?= $jumlahPelamar['count(*)'] ?></span>
                         <p>Pencari Kerja Terdaftar</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                     <!-- Footer Bottom Tittle -->
                     <div class="footer-tittle-bottom">
-                        <span><?= $jumlahPerusahaan ?></span>
+                        <span><?= $jumlahPerusahaan['count(*)'] ?></span>
                         <p>Perusahaan Terdaftar</p>
                     </div>
                 </div>
