@@ -61,10 +61,10 @@
                                     </nav>
                                 </div>
                                 <!-- Header-btn -->
-                                <div class="header-btn d-none f-right d-lg-block">
+                                <div class="main-menu" class="header-btn d-none f-right d-lg-block">
                                     <a href="register.php" class="btn head-btn1">Register</a>
                                     <a href="login.php" class="btn head-btn2">Login</a>
-                                </div>
+                                </div> <br>
                             </div>
                         </div>
                         <!-- Mobile Menu -->

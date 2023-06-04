@@ -109,10 +109,12 @@ if (isset($_POST['buat_lowongan_kerja'])) {
                   <select name="pendidikan" id="pendidikan" class="form-select" required>
                     <option value="" disabled selected hidden>Pilih</option>
                     <option value="SMA/Sederajat">SMA/Sederajat</option>
-                    <option value="Diploma/D1/D2/D3">Diploma/D1/D2/D3</option>
-                    <option value="Sarjana / S1">Sarjana / S1</option>
-                    <option value="Master / S2">Master / S2</option>
-                    <option value="Doctor / S3">Doctor / S3</option>
+                    <option value="Diploma/ D1">Diploma/ D1</option>
+                    <option value="Diploma/ D2">Diploma/ D2</option>
+                    <option value="Diploma/ D3">Diploma/ D3</option>
+                    <option value="Sarjana/ S1">Sarjana/ S1</option>
+                    <option value="Master/ S2">Master/ S2</option>
+                    <option value="Doctor/ S3">Doctor/ S3</option>
                   </select>
                 </div>
 
