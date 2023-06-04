@@ -13,13 +13,12 @@ require '../functions.php';
 $id_pelamar = $_SESSION['id_pelamar'];
 $id_lamaran = $_GET["id"];
 
-$detail_lamaran = query("SELECT
+$detail_lamaran = query(
+"SELECT
 	detail_lamaran.*, 
-	info_pekerjaan.*, 
-	perusahaan.id_perusahaan, 
+	info_pekerjaan.*,  
 	perusahaan.nama_perusahaan, 
-	perusahaan.logo_perusahaan, 
-	perusahaan.id_lokasi, 
+	perusahaan.logo_perusahaan,  
     lokasi_pekerjaan.nama_lokasi,
     kategori_pekerjaan.nama_kategori
 FROM
@@ -44,8 +43,7 @@ FROM
 	kategori_pekerjaan
 	ON 
 		info_pekerjaan.id_kategori = kategori_pekerjaan.id_kategori
-    WHERE
-    detail_lamaran.id_lamaran = $id_lamaran")[0];
+WHERE detail_lamaran.id_lamaran = $id_lamaran")[0];
 
 ?>
 

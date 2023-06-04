@@ -19,8 +19,9 @@ $halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
 $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 
 
-$info_pekerjaan = query("SELECT
-	info_pekerjaan.id_pekerjaan, 
+$info_pekerjaan = query
+("SELECT
+    info_pekerjaan.id_pekerjaan, 
 	info_pekerjaan.judul, 
 	perusahaan.nama_perusahaan, 
 	perusahaan.logo_perusahaan, 
@@ -43,7 +44,8 @@ FROM
 	INNER JOIN
 	lokasi_pekerjaan
 	ON 
-		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi LIMIT $awalData, $jumlahDataPerHalaman");
+		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi 
+LIMIT $awalData, $jumlahDataPerHalaman");
 
 
 

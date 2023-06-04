@@ -12,7 +12,8 @@ require '../functions.php';
 
 $id_perusahaan = $_SESSION['id_perusahaan'];
 
-$info_pekerjaan = query("SELECT
+$info_pekerjaan = query(
+"SELECT
 	info_pekerjaan.id_pekerjaan, 
 	info_pekerjaan.judul, 
 	perusahaan.nama_perusahaan, 
@@ -21,8 +22,7 @@ $info_pekerjaan = query("SELECT
 	kategori_pekerjaan.nama_kategori, 
 	info_pekerjaan.tipe, 
 	info_pekerjaan.gaji, 
-	info_pekerjaan.pendidikan, 
-	info_pekerjaan.deskripsi
+	info_pekerjaan.pendidikan
 FROM
 	info_pekerjaan
 	INNER JOIN
@@ -36,7 +36,8 @@ FROM
 	INNER JOIN
 	lokasi_pekerjaan
 	ON 
-		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi WHERE info_pekerjaan.id_perusahaan = $id_perusahaan");
+		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi 
+WHERE info_pekerjaan.id_perusahaan = $id_perusahaan");
 
 // cek apakah tombol submit sudah ditekan atau belum
 if (isset($_POST['hapus_pekerjaan'])) {

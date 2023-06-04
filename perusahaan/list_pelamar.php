@@ -39,32 +39,9 @@ FROM
 		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi WHERE info_pekerjaan.id_pekerjaan = $id_pekerjaan")[0];
 
 
-
-$detail_lamaran = query("SELECT
-	detail_lamaran.*, 
-	info_pekerjaan.*, 
-	perusahaan.id_perusahaan, 
-	perusahaan.nama_perusahaan, 
-	perusahaan.email_perusahaan, 
-	perusahaan.telepon_perusahaan, 
-	perusahaan.website_perusahaan, 
-	perusahaan.logo_perusahaan, 
-	perusahaan.id_lokasi, 
-	perusahaan.tentang
-FROM
-	detail_lamaran
-	INNER JOIN
-	info_pekerjaan
-	ON 
-		detail_lamaran.id_pekerjaan = info_pekerjaan.id_pekerjaan
-	INNER JOIN
-	perusahaan
-	ON 
-		info_pekerjaan.id_perusahaan = perusahaan.id_perusahaan
-	INNER JOIN
-	pelamar
-	ON 
-		detail_lamaran.id_pelamar = pelamar.id_pelamar WHERE detail_lamaran.id_pekerjaan = $id_pekerjaan");
+$detail_lamaran = query(
+"SELECT * FROM detail_lamaran 
+WHERE detail_lamaran.id_pekerjaan = $id_pekerjaan");
 
 ?>
 

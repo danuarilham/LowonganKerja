@@ -13,7 +13,8 @@ require 'functions.php';
 
 $id = $_GET["id"];
 
-$info = query("SELECT
+$info = query
+("SELECT
 	info_pekerjaan.*,
 	perusahaan.nama_perusahaan, 
 	perusahaan.tentang, 
@@ -35,7 +36,8 @@ FROM
 	INNER JOIN
 	lokasi_pekerjaan
 	ON 
-		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi WHERE id_pekerjaan = $id")[0];
+		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi 
+WHERE id_pekerjaan = $id")[0];
 
 ?>
 

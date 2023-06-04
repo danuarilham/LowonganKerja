@@ -14,14 +14,13 @@ $id_pelamar = $_SESSION['id_pelamar'];
 
 $info = query("SELECT * FROM pelamar WHERE id_pelamar = $id_pelamar")[0];
 
-$detail_lamaran = query("SELECT
+$detail_lamaran = query(
+"SELECT
 	detail_lamaran.id_lamaran, 
 	detail_lamaran.tanggal_lamar, 
 	info_pekerjaan.*, 
-	perusahaan.id_perusahaan, 
 	perusahaan.nama_perusahaan, 
 	perusahaan.logo_perusahaan, 
-	perusahaan.id_lokasi, 
 	lokasi_pekerjaan.nama_lokasi
 FROM
 	detail_lamaran
@@ -40,7 +39,8 @@ FROM
 	INNER JOIN
 	lokasi_pekerjaan
 	ON 
-		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi WHERE detail_lamaran.id_pelamar = $id_pelamar");
+		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi 
+WHERE detail_lamaran.id_pelamar = $id_pelamar");
 
 ?>
 

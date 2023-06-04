@@ -12,11 +12,13 @@ require '../functions.php';
 
 $id_perusahaan = $_SESSION['id_perusahaan'];
 
-$info = query("SELECT * FROM perusahaan 
+$info = query(
+"SELECT * FROM perusahaan 
   INNER JOIN
 	lokasi_pekerjaan
 	ON 
-	perusahaan.id_lokasi = lokasi_pekerjaan.id_lokasi WHERE id_perusahaan = $id_perusahaan")[0];
+	perusahaan.id_lokasi = lokasi_pekerjaan.id_lokasi 
+WHERE id_perusahaan = $id_perusahaan")[0];
 
 $lokasi = query("SELECT * FROM lokasi_pekerjaan");
 

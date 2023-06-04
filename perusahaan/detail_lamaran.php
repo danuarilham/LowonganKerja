@@ -17,10 +17,8 @@ $id_lamaran = $_GET["id"];
 $detail_lamaran = query("SELECT
 	detail_lamaran.*, 
 	info_pekerjaan.*, 
-	perusahaan.id_perusahaan, 
 	perusahaan.nama_perusahaan, 
 	perusahaan.logo_perusahaan, 
-	perusahaan.id_lokasi, 
     lokasi_pekerjaan.nama_lokasi,
     kategori_pekerjaan.nama_kategori
 FROM
