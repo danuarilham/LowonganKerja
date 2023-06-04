@@ -30,8 +30,11 @@ function tambah_pekerjaan($data)
     $keahlian = htmlspecialchars($data["keahlian"]);
     $waktu_bekerja = htmlspecialchars($data["waktu_bekerja"]);
 
-    $query = "INSERT INTO info_pekerjaan VALUES ('', $id_perusahaan, $id_lokasi, $id_kategori, '$judul', '$tipe', '$gaji', '$pendidikan', '$deskripsi', '$gender', '$tanggung_jawab', '$keahlian', '$waktu_bekerja')";
-    
+    $query =
+        "INSERT INTO info_pekerjaan 
+    VALUES 
+        ('', $id_perusahaan, $id_lokasi, $id_kategori, '$judul', '$tipe', '$gaji', '$pendidikan', '$deskripsi', '$gender', '$tanggung_jawab', '$keahlian', '$waktu_bekerja')";
+
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
@@ -56,7 +59,11 @@ function tambah_detail_lamaran($data)
     $resume = htmlspecialchars($data["resume"]);
     $foto_pelamar = htmlspecialchars($data["foto_pelamar"]);
 
-    $query = "INSERT INTO detail_lamaran (id_lamaran, id_pekerjaan, id_pelamar, pesan_promosi, status_lamaran, nama_pelamar, email_pelamar, telepon_pelamar, foto_pelamar, pendidikan_terakhir, resume, jenis_kelamin, tahun_kelahiran, alamat_pelamar, kota_kab_pelamar, lama_bekerja) VALUES ('', $id_pekerjaan, $id_pelamar, '$pesan_promosi', 0, '$nama_pelamar', '$email_pelamar', '$telepon_pelamar', '$foto_pelamar', '$pendidikan_terakhir', '$resume', '$jenis_kelamin', '$tahun_kelahiran', '$alamat_pelamar', '$kota_kab_pelamar', '$lama_bekerja')";
+    $query =
+        "INSERT INTO detail_lamaran 
+        (id_lamaran, id_pekerjaan, id_pelamar, pesan_promosi, nama_pelamar, email_pelamar, telepon_pelamar, foto_pelamar, pendidikan_terakhir, resume, jenis_kelamin, tahun_kelahiran, alamat_pelamar, kota_kab_pelamar, lama_bekerja)
+    VALUES 
+        ('', $id_pekerjaan, $id_pelamar, '$pesan_promosi', '$nama_pelamar', '$email_pelamar', '$telepon_pelamar', '$foto_pelamar', '$pendidikan_terakhir', '$resume', '$jenis_kelamin', '$tahun_kelahiran', '$alamat_pelamar', '$kota_kab_pelamar', '$lama_bekerja')";
 
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
@@ -224,20 +231,20 @@ function ubah_perusahaan($data)
 
     if ($_FILES['gambar']['error'] === 4) {
         $gambar = $gambarLama;
-    } 
-    else {
+    } else {
         $gambar = upload();
     }
 
-    $query = "UPDATE perusahaan SET 
-                nama_perusahaan = '$nama_perusahaan', 
-                email_perusahaan = '$email_perusahaan', 
-                website_perusahaan = '$website_perusahaan', 
-                telepon_perusahaan = '$telepon_perusahaan', 
-                id_lokasi = $id_lokasi, 
-                tentang = '$tentang', 
-                logo_perusahaan = '$gambar' 
-                WHERE id_perusahaan = $id
+    $query =
+        "UPDATE perusahaan SET 
+        nama_perusahaan = '$nama_perusahaan', 
+        email_perusahaan = '$email_perusahaan', 
+        website_perusahaan = '$website_perusahaan', 
+        telepon_perusahaan = '$telepon_perusahaan', 
+        id_lokasi = $id_lokasi, 
+        tentang = '$tentang', 
+        logo_perusahaan = '$gambar' 
+    WHERE id_perusahaan = $id
             ";
     mysqli_query($conn, $query);
 
@@ -260,18 +267,19 @@ function ubah_pekerjaan($data)
     $keahlian = htmlspecialchars($data["keahlian"]);
     $waktu_bekerja = htmlspecialchars($data["waktu_bekerja"]);
 
-    $query = "UPDATE info_pekerjaan SET 
-                id_kategori = $id_kategori, 
-                judul = '$judul', 
-                tipe = '$tipe', 
-                gaji = '$gaji', 
-                pendidikan = '$pendidikan', 
-                deskripsi = '$deskripsi', 
-                gender = '$gender', 
-                tanggung_jawab = '$tanggung_jawab', 
-                keahlian = '$keahlian', 
-                waktu_bekerja = '$waktu_bekerja'
-                WHERE id_pekerjaan = $id_pekerjaan
+    $query =
+        "UPDATE info_pekerjaan SET 
+        id_kategori = $id_kategori, 
+        judul = '$judul', 
+        tipe = '$tipe', 
+        gaji = '$gaji', 
+        pendidikan = '$pendidikan', 
+        deskripsi = '$deskripsi', 
+        gender = '$gender', 
+        tanggung_jawab = '$tanggung_jawab', 
+        keahlian = '$keahlian', 
+        waktu_bekerja = '$waktu_bekerja'
+    WHERE id_pekerjaan = $id_pekerjaan
             ";
 
     mysqli_query($conn, $query);
@@ -298,32 +306,31 @@ function ubah_pelamar($data)
 
     if ($_FILES['gambar']['error'] === 4) {
         $gambar = $gambarLama;
-    } 
-    else {
+    } else {
         $gambar = upload_foto_pelamar();
     }
 
     if ($_FILES['resume']['error'] === 4) {
         $resume = $resumeLama;
-    } 
-    else {
+    } else {
         $resume = upload_resume();
     }
 
-    $query = "UPDATE pelamar SET 
-                nama_pelamar = '$nama_pelamar', 
-                email_pelamar = '$email_pelamar', 
-                telepon_pelamar = '$telepon_pelamar', 
-                pendidikan_terakhir = '$pendidikan_terakhir', 
-                jenis_kelamin = '$jenis_kelamin', 
-                tahun_kelahiran = '$tahun_kelahiran', 
-                alamat_pelamar = '$alamat_pelamar', 
-                kota_kab_pelamar = '$kota_kab_pelamar', 
-                lama_bekerja = '$lama_bekerja', 
-                foto_pelamar = '$gambar', 
-                status_akun = 1, 
-                resume = '$resume'
-                WHERE id_pelamar = $id
+    $query =
+        "UPDATE pelamar SET 
+        nama_pelamar = '$nama_pelamar', 
+        email_pelamar = '$email_pelamar', 
+        telepon_pelamar = '$telepon_pelamar', 
+        pendidikan_terakhir = '$pendidikan_terakhir', 
+        jenis_kelamin = '$jenis_kelamin', 
+        tahun_kelahiran = '$tahun_kelahiran', 
+        alamat_pelamar = '$alamat_pelamar', 
+        kota_kab_pelamar = '$kota_kab_pelamar', 
+        lama_bekerja = '$lama_bekerja', 
+        foto_pelamar = '$gambar', 
+        status_akun = 1, 
+        resume = '$resume'
+    WHERE id_pelamar = $id
             ";
     mysqli_query($conn, $query);
 
