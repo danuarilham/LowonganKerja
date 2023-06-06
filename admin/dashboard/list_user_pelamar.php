@@ -11,7 +11,8 @@ if (!isset($_SESSION["login_users"])) {
 require '../../functions.php';
 
 $data_pelamar = query(
-"SELECT * from pelamar order by nama_pelamar asc");
+    "SELECT * FROM pelamar ORDER BY nama_pelamar ASC"
+);
 
 if (isset($_POST['hapus_user_pelamar'])) {
     // cek apakah data berhasil dihapus atau tidak
@@ -69,13 +70,12 @@ if (isset($_POST['hapus_user_pelamar'])) {
                     <thead>
                         <tr>
                             <th scope="col">No. </th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Password</th>
+                            <th scope="col" colspan="2">Nama</th>
+                            <th scope="col">Email</th>
                             <th scope="col">Telepon</th>
                             <th scope="col">Jenis Kelamin</th>
                             <th scope="col">Tahun Lahir</th>
-                            <th scope="col" colspan="2">Alamat</th>
+                            <th scope="col">Alamat</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -84,22 +84,21 @@ if (isset($_POST['hapus_user_pelamar'])) {
                         <?php foreach ($data_pelamar as $row) { ?>
                             <tr>
                                 <th class="align-middle" scope="row"><?= $i ?></th>
+                                <td class="align-middle"><img src="../../upload/user/foto/<?= $row['foto_pelamar'] ?>" alt="" width="60px"></td>
                                 <td class="align-middle"><?= $row['nama_pelamar'] ?></td>
                                 <td class="align-middle"><?= $row['email_pelamar'] ?></td>
-                                <td class="align-middle"><?= $row['password_pelamar'] ?></td>
                                 <td class="align-middle"><?= $row['telepon_pelamar'] ?></td>
                                 <td class="align-middle"><?= $row['jenis_kelamin'] ?></td>
                                 <td class="align-middle"><?= $row['tahun_kelahiran'] ?></td>
                                 <td><?= $row['alamat_pelamar'] ?>
                                     <br> <span style="color: gray;"><small>
-                                        <?= $row['kota_kab_pelamar'] ?>
-                                    </small></span>
+                                            <?= $row['kota_kab_pelamar'] ?>
+                                        </small></span>
                                 </td>
                                 <td class="align-middle">
                                     <form action="" method="post">
                                         <input type="hidden" name="id_pelamar" value="<?= $row['id_pelamar'] ?>">
                                         <button type="submit" class="btn-danger rounded-lg mb-2" onclick="return confirm('Yakin untuk menghapus user pelamar?')" name="hapus_user_pelamar">
-                                        <i class="ti-close"></i>
                                             Delete
                                         </button>
                                     </form>

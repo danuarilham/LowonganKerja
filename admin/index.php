@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'functions.php';
+require '../functions.php';
 
 if (isset($_SESSION["login_users"])) {
   header("Location: dashboard/home.php");

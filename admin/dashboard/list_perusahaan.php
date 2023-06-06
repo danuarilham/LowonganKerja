@@ -11,21 +11,20 @@ if (!isset($_SESSION["login_users"])) {
 require '../../functions.php';
 
 $data_perusahaan = query(
-"SELECT perusahaan.id_perusahaan, 
-perusahaan.username_perusahaan, 
-perusahaan.password_perusahaan, 
-perusahaan.nama_perusahaan, 
-perusahaan.email_perusahaan, 
-perusahaan.telepon_perusahaan, 
-perusahaan.website_perusahaan, 
-perusahaan.logo_perusahaan, 
-lokasi_pekerjaan.nama_lokasi
+    "SELECT 
+    perusahaan.id_perusahaan, 
+    perusahaan.nama_perusahaan, 
+    perusahaan.email_perusahaan, 
+    perusahaan.telepon_perusahaan, 
+    perusahaan.logo_perusahaan, 
+    lokasi_pekerjaan.nama_lokasi
 FROM
-perusahaan
+    perusahaan
 INNER JOIN
-lokasi_pekerjaan
+    lokasi_pekerjaan
 ON 
-perusahaan.id_lokasi = lokasi_pekerjaan.id_lokasi order by nama_perusahaan asc");
+    perusahaan.id_lokasi = lokasi_pekerjaan.id_lokasi order by nama_perusahaan asc"
+);
 
 if (isset($_POST['hapus_user_perusahaan'])) {
     // cek apakah data berhasil dihapus atau tidak
@@ -83,12 +82,10 @@ if (isset($_POST['hapus_user_perusahaan'])) {
                     <thead>
                         <tr>
                             <th scope="col">No. </th>
-                            <th scope="col">Nama Perusahaan</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Password</th>
+                            <th scope="col" colspan="2">Perusahaan</th>
+                            <th scope="col">Email</th>
                             <th scope="col">Telepon</th>
                             <th scope="col">Lokasi</th>
-                            <th scope="col">Website</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -97,17 +94,15 @@ if (isset($_POST['hapus_user_perusahaan'])) {
                         <?php foreach ($data_perusahaan as $row) { ?>
                             <tr>
                                 <th class="align-middle" scope="row"><?= $i ?></th>
+                                <td class="align-middle"><img src="../../upload/perusahaan/logo/<?= $row['logo_perusahaan'] ?>" alt="" width="60px"></td>
                                 <td class="align-middle"><?= $row['nama_perusahaan'] ?></td>
                                 <td class="align-middle"><?= $row['email_perusahaan'] ?></td>
-                                <td class="align-middle"><?= $row['password_perusahaan'] ?></td>
                                 <td class="align-middle"><?= $row['telepon_perusahaan'] ?></td>
                                 <td class="align-middle"><?= $row['nama_lokasi'] ?></td>
-                                <td class="align-middle"><?= $row['website_perusahaan'] ?></td>
                                 <td class="align-middle">
                                     <form action="" method="post">
                                         <input type="hidden" name="id_perusahaan" value="<?= $row['id_perusahaan'] ?>">
-                                        <button type="submit" class="btn-danger rounded-lg mb-2" onclick="return confirm('Yakin untuk menghapus user perusahaan?')" name="hapus_user_perusahaan">
-                                        <i class="ti-close"></i>
+                                        <button type="submit" class="btn-danger rounded-lg" onclick="return confirm('Yakin untuk menghapus user perusahaan?')" name="hapus_user_perusahaan">
                                             Delete
                                         </button>
                                     </form>
