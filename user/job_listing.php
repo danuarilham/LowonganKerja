@@ -40,7 +40,7 @@ FROM
 	INNER JOIN
 	lokasi_pekerjaan
 	ON 
-		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi LIMIT $awalData, $jumlahDataPerHalaman");
+		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi ORDER BY info_pekerjaan.id_pekerjaan DESC LIMIT $awalData, $jumlahDataPerHalaman");
 
 
 

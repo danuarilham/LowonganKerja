@@ -76,7 +76,7 @@ if (isset($_POST['ubah_lowongan_kerja'])) {
                             <form action="" method="post" class="row g-3">
 
                                 <input type="text" name="id_pekerjaan" value="<?= $id_pekerjaan ?>" hidden>
-                                
+
 
                                 <div class="col-md-12 mb-3">
                                     <label for="judul" class="form-label">Jabatan / Posisi Pekerjaan <span style="color:red"> *</span></label>
@@ -105,7 +105,10 @@ if (isset($_POST['ubah_lowongan_kerja'])) {
                                     <label for="pendidikan" class="form-label">Syarat Pendidikan <span style="color:red"> *</span></label>
                                     <select name="pendidikan" id="pendidikan" class="form-select" required>
                                         <option value="SMA/Sederajat" <?php echo ($pekerjaan['pendidikan'] == "SMA/Sederajat") ? "selected" : "" ?>>SMA/Sederajat</option>
-                                        <option value="Diploma/D1/D2/D3" <?php echo ($pekerjaan['pendidikan'] == "Diploma/D1/D2/D3") ? "selected" : "" ?>>Diploma/D1/D2/D3</option>
+                                        <option value="Diploma/ D1" <?php echo ($pekerjaan['pendidikan'] == "Diploma/ D1") ? "selected" : "" ?>>Diploma/ D1</option>
+                                        <option value="Diploma/ D2" <?php echo ($pekerjaan['pendidikan'] == "Diploma/ D2") ? "selected" : "" ?>>Diploma/ D2</option>
+                                        <option value="Diploma/ D3" <?php echo ($pekerjaan['pendidikan'] == "Diploma/ D3") ? "selected" : "" ?>>Diploma/ D3</option>
+                                        <option value="Diploma/ D4" <?php echo ($pekerjaan['pendidikan'] == "Diploma/ D4") ? "selected" : "" ?>>Diploma/ D4</option>
                                         <option value="Sarjana / S1" <?php echo ($pekerjaan['pendidikan'] == "Sarjana / S1") ? "selected" : "" ?>>Sarjana / S1</option>
                                         <option value="Master / S2" <?php echo ($pekerjaan['pendidikan'] == "Master / S2") ? "selected" : "" ?>>Master / S2</option>
                                         <option value="Doctor / S3" <?php echo ($pekerjaan['pendidikan'] == "Doctor / S3") ? "selected" : "" ?>>Doctor / S3</option>

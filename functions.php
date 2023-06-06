@@ -429,7 +429,7 @@ FROM
 	ON 
 		info_pekerjaan.id_lokasi = lokasi_pekerjaan.id_lokasi WHERE
                 (nama_perusahaan LIKE '%$keyword%' OR
-                judul LIKE '%$keyword%') AND info_pekerjaan.id_lokasi LIKE '%$lokasi%' LIMIT $awalData, $jumlahDataPerHalaman";
+                judul LIKE '%$keyword%') AND info_pekerjaan.id_lokasi LIKE '%$lokasi%' ORDER BY info_pekerjaan.id_pekerjaan DESC LIMIT $awalData, $jumlahDataPerHalaman";
 
     return query($query);
 }

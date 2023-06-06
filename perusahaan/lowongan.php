@@ -18,7 +18,7 @@ $info = query("SELECT * FROM perusahaan
 	ON 
 	perusahaan.id_lokasi = lokasi_pekerjaan.id_lokasi WHERE id_perusahaan = $id_perusahaan")[0];
 
-$kategori = query("SELECT * FROM kategori_pekerjaan");
+$kategori = query("SELECT * FROM kategori_pekerjaan ORDER BY nama_kategori ASC");
 
 // cek apakah tombol submit sudah ditekan atau belum
 if (isset($_POST['buat_lowongan_kerja'])) {
@@ -112,6 +112,7 @@ if (isset($_POST['buat_lowongan_kerja'])) {
                     <option value="Diploma/ D1">Diploma/ D1</option>
                     <option value="Diploma/ D2">Diploma/ D2</option>
                     <option value="Diploma/ D3">Diploma/ D3</option>
+                    <option value="Diploma/ D4">Diploma/ D4</option>
                     <option value="Sarjana/ S1">Sarjana/ S1</option>
                     <option value="Master/ S2">Master/ S2</option>
                     <option value="Doctor/ S3">Doctor/ S3</option>
