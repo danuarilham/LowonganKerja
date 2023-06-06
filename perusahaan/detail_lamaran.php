@@ -49,7 +49,7 @@ FROM
 ?>
 
 
-<?php $title = 'Lamaran Kerja' ?>
+<?php $title = 'Pekerjaan & Pelamar' ?>
 <?php include 'navbar.php' ?>
 
 <!-- breadcumb -->
