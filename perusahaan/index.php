@@ -12,13 +12,10 @@ require '../functions.php';
 
 $id_perusahaan = $_SESSION['id_perusahaan'];
 
-$posted = count(query("SELECT * FROM info_pekerjaan WHERE id_perusahaan = $id_perusahaan"));
+$posted = query("SELECT count(*) FROM info_pekerjaan WHERE id_perusahaan = $id_perusahaan")[0];
 
-$jumlahPelamar = count(query("SELECT
-	detail_lamaran.id_lamaran, 
-	detail_lamaran.id_pekerjaan, 
-	detail_lamaran.id_pelamar, 
-	info_pekerjaan.id_perusahaan
+$jumlahPelamar = query(
+"SELECT count(*)
 FROM
 	detail_lamaran
 	INNER JOIN
@@ -28,7 +25,7 @@ FROM
 	INNER JOIN
 	perusahaan
 	ON 
-		info_pekerjaan.id_perusahaan = perusahaan.id_perusahaan WHERE info_pekerjaan.id_perusahaan = $id_perusahaan"));
+		info_pekerjaan.id_perusahaan = perusahaan.id_perusahaan WHERE info_pekerjaan.id_perusahaan = $id_perusahaan")[0];
 
 $info = query("SELECT * FROM perusahaan WHERE id_perusahaan = $id_perusahaan")[0];
 
@@ -83,7 +80,7 @@ $info = query("SELECT * FROM perusahaan WHERE id_perusahaan = $id_perusahaan")[0
                               <div class="row">
                                 <div class="col">
                                   <h5 class="card-title text-uppercase text-muted mb-0">Pekerjaan Diposting</h5>
-                                  <span class="h2 font-weight-bold mb-0"><?= $posted ?></span>
+                                  <span class="h2 font-weight-bold mb-0"><?= $posted['count(*)'] ?></span>
                                 </div>
                                 <div class="col-auto">
                                   <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -100,7 +97,7 @@ $info = query("SELECT * FROM perusahaan WHERE id_perusahaan = $id_perusahaan")[0
                               <div class="row">
                                 <div class="col">
                                   <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Pelamar</h5>
-                                  <span class="h2 font-weight-bold mb-0"><?= $jumlahPelamar ?></span>
+                                  <span class="h2 font-weight-bold mb-0"><?= $jumlahPelamar['count(*)'] ?></span>
                                 </div>
                                 <div class="col-auto">
                                   <div class="icon icon-shape bg-warning text-white rounded-circle shadow">

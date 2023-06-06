@@ -10,15 +10,11 @@ if (!isset($_SESSION["login_users"])) {
 
 require '../../functions.php';
 
-$id_perusahaan = $_SESSION['id_users'];
+$posted = query("SELECT count(*) FROM perusahaan")[0];
 
-$posted = count(query("SELECT * FROM perusahaan"));
+$jumlahPelamar = query("SELECT count(*) FROM pelamar")[0];
 
-$jumlahPelamar = count(query("SELECT * FROM pelamar"));
-
-$jumlahLoker = count(query("SELECT * FROM info_pekerjaan"));
-
-$info = query("SELECT * FROM perusahaan WHERE id_perusahaan = $id_perusahaan")[0];
+$jumlahLoker = query("SELECT count(*) FROM info_pekerjaan")[0];
 
 ?>
 
@@ -66,7 +62,7 @@ $info = query("SELECT * FROM perusahaan WHERE id_perusahaan = $id_perusahaan")[0
                               <div class="row">
                                 <div class="col">
                                   <h5 class="card-title text-uppercase text-muted mb-0">Jumlah User Perusahaan</h5>
-                                  <span class="h2 font-weight-bold mb-0"><?= $posted ?></span>
+                                  <span class="h2 font-weight-bold mb-0"><?= $posted['count(*)'] ?></span>
                                 </div>
                                 <div class="col-auto">
                                   <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -83,7 +79,7 @@ $info = query("SELECT * FROM perusahaan WHERE id_perusahaan = $id_perusahaan")[0
                               <div class="row">
                                 <div class="col">
                                   <h5 class="card-title text-uppercase text-muted mb-0">Jumlah User Pelamar</h5>
-                                  <span class="h2 font-weight-bold mb-0"><?= $jumlahPelamar ?></span>
+                                  <span class="h2 font-weight-bold mb-0"><?= $jumlahPelamar['count(*)'] ?></span>
                                 </div>
                                 <div class="col-auto">
                                   <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -103,7 +99,7 @@ $info = query("SELECT * FROM perusahaan WHERE id_perusahaan = $id_perusahaan")[0
                               <div class="row">
                                 <div class="col">
                                   <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Postingan Loker</h5>
-                                  <span class="h2 font-weight-bold mb-0"><?= $jumlahLoker ?></span>
+                                  <span class="h2 font-weight-bold mb-0"><?= $jumlahLoker['count(*)'] ?></span>
                                 </div>
                                 <div class="col-auto">
                                   <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
