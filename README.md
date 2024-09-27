@@ -1,19 +1,40 @@
 # 🔎 Ingfo Loker (Job Portal and Posting)
+This project is a job search and posting platform that facilitates interaction between job seekers and companies. It features two main user roles—Job Applicants and Companies—with an additional Administrator role for managing users and job postings. This project is the final assignment for the Database Systems course at the university, designed to demonstrate full-stack development and database management skills.
 
-|![screencapture-localhost-8080-application-template-project-sbd-user-detail-lamaran-php-2024-09-27-12_29_30](https://github.com/user-attachments/assets/fc20ace7-c359-4c5a-9afd-f04baae6fc4e) | ![screencapture-localhost-8080-application-template-project-sbd-user-lamaran-kerja-php-2024-09-27-12_29_19](https://github.com/user-attachments/assets/fe968ce1-244d-467e-9528-cec7dc9091a6) |
-:-------------------------:|:-------------------------:
+## ✨Features:
+### Job Applicants:
+- **Register an Account:** Create a new applicant account.
+- **Login:** Access the applicant dashboard.
+- **Profile Completion:** Fill in personal information and upload a CV.
+- **Apply for Jobs:** Browse and apply for jobs posted by companies.
+### Companies:
+- **Register a Company Account:** Sign up as a company.
+- **Login:** Access the company dashboard.
+- **Company Profile:** Complete company details.
+- **Post Job Listings:** Create job postings with descriptions and requirements.
+- **View Applicants:** See a list of applicants who applied for job postings.
+### Administrator:
+- **Manage Users and Companies:** View and manage registered applicants and companies.
+- **Delete Records:** Remove users, companies, or job postings as necessary.
+
+## ⚙ Technology Used:
+- **Backend:** Native PHP
+- **Database:** MySQL
+
+## 💡 Database Design
+![db2](https://github.com/user-attachments/assets/ebd7168d-3f1c-4562-bfd7-6d2adb534e8b)
+![ERD](https://github.com/user-attachments/assets/f3279717-56ab-4fea-8cef-4e06c9907385)
 
 
-
-## Screenshot
+## 📸 Screenshot
 ### Landing Page
 ![screencapture-localhost-8080-application-template-project-sbd-index-php-2024-09-27-11_26_43](https://github.com/user-attachments/assets/acd640f6-1076-4248-8423-d86b97e55f37)
 
 ### Auth
 #### Login
-| | |
-:-------------------------:|:-------------------------:
-|![screencapture-localhost-8080-application-template-project-sbd-login-php-2024-09-27-11_29_32](https://github.com/user-attachments/assets/91e25480-43fb-4ea1-943b-f5c2b3eae2d6) | ![screencapture-localhost-8080-application-template-project-sbd-login-pelamar-php-2024-09-27-11_29_47](https://github.com/user-attachments/assets/6c4f6c69-6623-4bed-92ba-386a57a24aa9) |
+
+![screencapture-localhost-8080-application-template-project-sbd-login-php-2024-09-27-11_29_32](https://github.com/user-attachments/assets/91e25480-43fb-4ea1-943b-f5c2b3eae2d6) 
+![screencapture-localhost-8080-application-template-project-sbd-login-pelamar-php-2024-09-27-11_29_47](https://github.com/user-attachments/assets/6c4f6c69-6623-4bed-92ba-386a57a24aa9) 
 ![screencapture-localhost-8080-application-template-project-sbd-login-perusahaan-php-2024-09-27-11_29_59](https://github.com/user-attachments/assets/19a24cd4-d35e-4338-af3c-4d7a31b99209)
 
 #### Register
@@ -38,3 +59,25 @@
 ![screencapture-localhost-8080-application-template-project-sbd-user-lamaran-kerja-php-2024-09-27-12_29_19](https://github.com/user-attachments/assets/fe968ce1-244d-467e-9528-cec7dc9091a6)
 ![screencapture-localhost-8080-application-template-project-sbd-user-detail-lamaran-php-2024-09-27-12_29_30](https://github.com/user-attachments/assets/fc20ace7-c359-4c5a-9afd-f04baae6fc4e)
 
+### Company
+![screencapture-localhost-8080-application-template-project-sbd-perusahaan-index-php-2024-09-27-16_58_42](https://github.com/user-attachments/assets/9b23ff6b-c689-436e-96c3-0f73c3c5863e)
+![screencapture-localhost-8080-application-template-project-sbd-perusahaan-profil-perusahaan-php-2024-09-27-16_58_55](https://github.com/user-attachments/assets/e7d0ed6e-5b49-4fc5-ba45-ca1b542325c2)
+![screencapture-localhost-8080-application-template-project-sbd-perusahaan-lowongan-php-2024-09-27-16_59_15](https://github.com/user-attachments/assets/a2ebe3b5-a871-43a8-98cb-328198d74bc1)
+![screencapture-localhost-8080-application-template-project-sbd-perusahaan-list-pekerjaan-php-2024-09-27-16_59_31](https://github.com/user-attachments/assets/af274ae5-6c24-470c-a363-dfb174bdb29a)
+![screencapture-localhost-8080-application-template-project-sbd-perusahaan-list-pelamar-php-2024-09-27-16_59_44](https://github.com/user-attachments/assets/a63a9e4d-2bf8-4912-8849-e9df30bc1bcc)
+![screencapture-localhost-8080-application-template-project-sbd-perusahaan-detail-lamaran-php-2024-09-27-16_59_58](https://github.com/user-attachments/assets/6718895f-11ac-4a2e-9c44-ddea740f82c3)
+
+### Administrator
+![screencapture-localhost-8080-application-template-project-sbd-admin-index-php-2024-09-27-17_14_47](https://github.com/user-attachments/assets/40a9e412-276f-4e1a-a42e-f150b36182ec)
+
+![screencapture-localhost-8080-application-template-project-sbd-admin-dashboard-home-php-2024-09-27-12_53_30](https://github.com/user-attachments/assets/881cab1b-aebb-4db5-bd9f-a3435d90b029)
+![screencapture-localhost-8080-application-template-project-sbd-admin-dashboard-list-perusahaan-php-2024-09-27-12_53_45](https://github.com/user-attachments/assets/d4d8f12e-b5db-439c-b5ae-ff853f39d97a)
+![screencapture-localhost-8080-application-template-project-sbd-admin-dashboard-list-user-pelamar-php-2024-09-27-12_53_54](https://github.com/user-attachments/assets/78361402-eac1-4061-ba21-b759b8c2dd9c)
+![screencapture-localhost-8080-application-template-project-sbd-admin-dashboard-list-pekerjaan-php-2024-09-27-12_54_08](https://github.com/user-attachments/assets/72c8fb29-e240-4e8b-a0d7-9ec389b86810)
+
+## 🤓 Author(s)
+- @boyaditya
+
+## ✋ Acknowledgement
+Website Template: [Colorlib](https://colorlib.com/wp/template/jobfinderportal/)
+Image Assets: [Loker.id](https://www.loker.id/), [Vecteezy](https://www.vecteezy.com/vector-art/1879829-vector-illustration-of-looking-for-workers-we-re-hiring-sign-for-job-seekers-open-vacancies-for-job-positions-opportunity-in-finding-a-job-job-fair-can-use-for-landing-page-template-ui-web)
