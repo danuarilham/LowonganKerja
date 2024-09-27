@@ -77,6 +77,7 @@ This project is a job search and posting platform that facilitates interaction b
 
 ## 🤓 Author(s)
 - @boyaditya
+- @sghda
 
 ## ✋ Acknowledgement
 - Website Template: [Colorlib](https://colorlib.com/wp/template/jobfinderportal/)
