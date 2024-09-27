@@ -23,7 +23,7 @@ $info_lokasi = query('SELECT * FROM lokasi_pekerjaan');
     <div class="slider-area ">
         <!-- Mobile Menu -->
         <div class="slider-active">
-            <div class="single-slider slider-height pt align-items-center" data-background="assets/img/hero/hero.png">
+            <div class="single-slider slider-height pt align-items-center" data-background="assets/img/hero/hero2.jpg">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-7 col-lg-9 col-md-10 mt-120">
