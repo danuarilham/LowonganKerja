@@ -28,7 +28,7 @@ This project is a job search and posting platform that facilitates interaction b
 
 ## 📸 Screenshot
 ### Landing Page
-![screencapture-localhost-8080-application-template-project-sbd-index-php-2024-09-27-11_26_43](https://github.com/user-attachments/assets/acd640f6-1076-4248-8423-d86b97e55f37)
+![screencapture-localhost-8080-application-template-project-sbd-index-php-2024-09-27-18_25_24](https://github.com/user-attachments/assets/1c20ab9f-9c6f-4581-ad16-ba3708c60378)
 
 ### Auth
 #### Login
@@ -79,5 +79,5 @@ This project is a job search and posting platform that facilitates interaction b
 - @boyaditya
 
 ## ✋ Acknowledgement
-Website Template: [Colorlib](https://colorlib.com/wp/template/jobfinderportal/)
-Image Assets: [Loker.id](https://www.loker.id/), [Vecteezy](https://www.vecteezy.com/vector-art/1879829-vector-illustration-of-looking-for-workers-we-re-hiring-sign-for-job-seekers-open-vacancies-for-job-positions-opportunity-in-finding-a-job-job-fair-can-use-for-landing-page-template-ui-web)
+- Website Template: [Colorlib](https://colorlib.com/wp/template/jobfinderportal/)
+- Image Assets: [Loker.id](https://www.loker.id/), [Vecteezy](https://www.vecteezy.com/vector-art/1879829-vector-illustration-of-looking-for-workers-we-re-hiring-sign-for-job-seekers-open-vacancies-for-job-positions-opportunity-in-finding-a-job-job-fair-can-use-for-landing-page-template-ui-web)
