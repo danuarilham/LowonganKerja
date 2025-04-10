@@ -76,8 +76,7 @@ This project is a job search and posting platform that facilitates interaction b
 ![screencapture-localhost-8080-application-template-project-sbd-admin-dashboard-list-pekerjaan-php-2024-09-27-12_54_08](https://github.com/user-attachments/assets/72c8fb29-e240-4e8b-a0d7-9ec389b86810)
 
 ## 🤓 Author(s)
-- @boyaditya
-- @sghda
+- @danuarilham
 
 ## ✋ Acknowledgement
 - Website Template: [Colorlib](https://colorlib.com/wp/template/jobfinderportal/)

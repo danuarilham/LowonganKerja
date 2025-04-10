@@ -135,9 +135,6 @@ if (isset($_POST['update_profil_pelamar'])) {
             <select name="pendidikan_terakhir" id="pendidikan_terakhir" class="form-select" required>
               <option value="" class="text-black" disabled selected hidden>Pilih</option>
               <option value="SMA/Sederajat" <?php echo ($info['pendidikan_terakhir'] == "SMA/Sederajat") ? "selected" : "" ?>>SMA/Sederajat</option>
-              <option value="Diploma/D1/D2/D3" <?php echo ($info['pendidikan_terakhir'] == "Diploma/D1/D2/D3") ? "selected" : "" ?>>Diploma/D1/D2/D3</option>
-              <option value="Diploma/ D1" <?php echo ($info['pendidikan_terakhir'] == "Diploma/ D1") ? "selected" : "" ?>>Diploma/ D1</option>
-              <option value="Diploma/ D2" <?php echo ($info['pendidikan_terakhir'] == "Diploma/ D2") ? "selected" : "" ?>>Diploma/ D2</option>
               <option value="Diploma/ D3" <?php echo ($info['pendidikan_terakhir'] == "Diploma/ D3") ? "selected" : "" ?>>Diploma/ D3</option>
               <option value="Diploma/ D4" <?php echo ($info['pendidikan_terakhir'] == "Diploma/ D4") ? "selected" : "" ?>>Diploma/ D4</option>
               <option value="Sarjana / S1" <?php echo ($info['pendidikan_terakhir'] == "Sarjana / S1") ? "selected" : "" ?>>Sarjana / S1</option>

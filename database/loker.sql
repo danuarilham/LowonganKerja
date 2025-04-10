@@ -261,7 +261,7 @@ INSERT INTO `perusahaan` (`id_perusahaan`, `username_perusahaan`, `password_peru
 (2, 'inti@gmail.com', '123', 'PT. Inti Optima Teknologi', 'inti@gmail.com', '081123456782', 'www.inti.com', '64788155a0536.png', 2, 'IoT eksis dengan tujuan utama untuk memegang teguh kepercayaan dan akan melayanani kebutuhan Teknologi/Sistem Informasi dari klien'),
 (6, 'klikoptima@mail.com', '123', 'PT Klik Optima Indonesia', 'klikoptima@mail.com', '081123456783', '', '647c445a40eda.jpeg', 1, ''),
 (7, 'dayaretail@gmail.com', '123', 'PT Daya Anugrah Mandiri', 'dayaretail@gmail.com', '081123456784', '', '647c4623a09b3.jpeg', 2, ''),
-(8, 'roboticedu@xyz.com', '123', 'Robotics Education Centre', 'roboticedu@xyz.com', '081123456785', '', '647c4d76a34ac.jpeg', 4, ''),
+(8, 'roboticedu@xyz.com   ', '123', 'Robotics Education Centre', 'roboticedu@xyz.com', '081123456785', '', '647c4d76a34ac.jpeg', 4, ''),
 (9, 'mki@gmail.com', '123', 'PT Maha Kreasi Indonesia', 'mki@gmail.com', '081123456786', '', 'default_logo.png', 1, '');
 
 --

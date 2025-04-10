@@ -3,7 +3,7 @@ session_start();
 require '../functions.php';
 
 if (isset($_SESSION["login_users"])) {
-  header("Location: dashboard/home.php");
+  header("Location: /admin/dashboard/home.php");
   exit;
 } else {
   

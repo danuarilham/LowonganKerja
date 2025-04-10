@@ -28,7 +28,7 @@ $info_lokasi = query('SELECT * FROM lokasi_pekerjaan');
                     <div class="row">
                         <div class="col-xl-7 col-lg-9 col-md-10 mt-120">
                             <div class="hero__caption">
-                                <h1>Info Lowongan Kerja Bandung</h1>
+                                <h1>Info Lowongan Kerja Solo Raya</h1>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ $info_lokasi = query('SELECT * FROM lokasi_pekerjaan');
                         <li>
                             <h5>Hanya Perlu Perbarui Profil dan Unggah CV</h5>
                             <p>
-                                Website kami hadir untuk memudahkanmu menemukan pekerjaan impian di Bandung. Segera perbarui profilmu, unggah CV, dan temukan peluang karir yang sesuai dengan minat dan keahlianmu
+                                Website kami hadir untuk memudahkanmu menemukan pekerjaan impian di Solo Raya. Segera perbarui profilmu, unggah CV, dan temukan peluang karir yang sesuai dengan minat dan keahlianmu
                             </p>
                         </li>
                     </ul>

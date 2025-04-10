@@ -1,6 +1,7 @@
 <?php
 // koneksi ke database
-$conn = mysqli_connect("localhost", "root", "", "loker");
+$conn = mysqli_connect("localhost:8080", "root", "danuarilham", "loker");
+
 
 function query($query)
 {
@@ -30,10 +31,11 @@ function tambah_pekerjaan($data)
     $keahlian = htmlspecialchars($data["keahlian"]);
     $waktu_bekerja = htmlspecialchars($data["waktu_bekerja"]);
 
-    $query =
-        "INSERT INTO info_pekerjaan 
+    $query = 
+    "INSERT INTO info_pekerjaan 
+    (id_perusahaan, id_lokasi, id_kategori, judul, tipe, gaji, pendidikan, deskripsi, gender, tanggung_jawab, keahlian, waktu_bekerja) 
     VALUES 
-        ('', $id_perusahaan, $id_lokasi, $id_kategori, '$judul', '$tipe', '$gaji', '$pendidikan', '$deskripsi', '$gender', '$tanggung_jawab', '$keahlian', '$waktu_bekerja')";
+    ($id_perusahaan, $id_lokasi, $id_kategori, '$judul', '$tipe', '$gaji', '$pendidikan', '$deskripsi', '$gender', '$tanggung_jawab', '$keahlian', '$waktu_bekerja')";
 
     mysqli_query($conn, $query);
 
@@ -61,9 +63,9 @@ function tambah_detail_lamaran($data)
 
     $query =
         "INSERT INTO detail_lamaran 
-        (id_lamaran, id_pekerjaan, id_pelamar, pesan_promosi, nama_pelamar, email_pelamar, telepon_pelamar, foto_pelamar, pendidikan_terakhir, resume, jenis_kelamin, tahun_kelahiran, alamat_pelamar, kota_kab_pelamar, lama_bekerja)
+        (id_pekerjaan, id_pelamar, pesan_promosi, nama_pelamar, email_pelamar, telepon_pelamar, foto_pelamar, pendidikan_terakhir, resume, jenis_kelamin, tahun_kelahiran, alamat_pelamar, kota_kab_pelamar, lama_bekerja)
     VALUES 
-        ('', $id_pekerjaan, $id_pelamar, '$pesan_promosi', '$nama_pelamar', '$email_pelamar', '$telepon_pelamar', '$foto_pelamar', '$pendidikan_terakhir', '$resume', '$jenis_kelamin', '$tahun_kelahiran', '$alamat_pelamar', '$kota_kab_pelamar', '$lama_bekerja')";
+        ($id_pekerjaan, $id_pelamar, '$pesan_promosi', '$nama_pelamar', '$email_pelamar', '$telepon_pelamar', '$foto_pelamar', '$pendidikan_terakhir', '$resume', '$jenis_kelamin', '$tahun_kelahiran', '$alamat_pelamar', '$kota_kab_pelamar', '$lama_bekerja')";
 
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
@@ -446,31 +448,31 @@ function registrasi_pelamar($data)
     $password2 = mysqli_real_escape_string($conn, $data['password_pelamar2']);
 
     // cek username sudah ada atau belum
-    $result =  mysqli_query($conn, "SELECT username_pelamar FROM pelamar WHERE username_pelamar = '$username'");
+    // $result =  mysqli_query($conn, "SELECT username_pelamar FROM pelamar WHERE username_pelamar = '$username'");
 
-    if (mysqli_fetch_assoc($result)) {
-        echo "<script>
-            alert('username sudah terdaftar');
-            </script>";
+    // if (mysqli_fetch_assoc($result)) {
+    //     echo "<script>
+    //         alert('username sudah terdaftar');
+    //         </script>";
 
-        return false;
-    }
+    //     return false;
+    // }
 
-    // konfirmasi password
-    if ($password != $password2) {
-        echo "
-        <script>
-            alert('konfirmasi password tidak sesuai');
-        </script>";
+    // // konfirmasi password
+    // if ($password != $password2) {
+    //     echo "
+    //     <script>
+    //         alert('konfirmasi password tidak sesuai');
+    //     </script>";
 
-        return false;
-    }
+    //     return false;
+    // }
 
     // enkripsi password
     // $password = password_hash($password, PASSWORD_DEFAULT);
 
     // tambahkan pelamar baru ke database
-    mysqli_query($conn, "INSERT INTO pelamar(id_pelamar, username_pelamar, password_pelamar, email_pelamar) VALUES('', '$username', '$password', '$username')");
+    mysqli_query($conn, "INSERT INTO pelamar(username_pelamar, password_pelamar, email_pelamar) VALUES('$username', '$password', '$username')");
 
     return mysqli_affected_rows($conn);
 }
@@ -486,32 +488,32 @@ function registrasi_perusahaan($data)
     $telepon_perusahaan = htmlspecialchars($data["telepon_perusahaan"]);
     $id_lokasi = $data["id_lokasi"];
 
-    // cek username sudah ada atau belum
-    $result =  mysqli_query($conn, "SELECT username_perusahaan FROM perusahaan WHERE username_perusahaan = '$username'");
+    // // cek username sudah ada atau belum
+    // $result =  mysqli_query($conn, "SELECT username_perusahaan FROM perusahaan WHERE username_perusahaan = '$username'");
 
-    if (mysqli_fetch_assoc($result)) {
-        echo "<script>
-            alert('Email sudah terdaftar');
-            </script>";
+    // if (mysqli_fetch_assoc($result)) {
+    //     echo "<script>
+    //         alert('Email sudah terdaftar');
+    //         </script>";
 
-        return false;
-    }
+    //     return false;
+    // }
 
     // konfirmasi password
-    if ($password != $password2) {
-        echo "
-        <script>
-            alert('Konfirmasi password tidak sesuai');
-        </script>";
+    //if ($password != $password2) {
+        //echo "
+        //<script>
+           // alert('Konfirmasi password tidak sesuai');
+        // </script>";
 
-        return false;
-    }
+        //return false;
+    //  }
 
     // enkripsi password
     // $password = password_hash($password, PASSWORD_DEFAULT);
 
     // tambahkan perusahaan baru ke database
-    mysqli_query($conn, "INSERT INTO perusahaan(id_perusahaan, username_perusahaan, password_perusahaan, email_perusahaan, nama_perusahaan, telepon_perusahaan, id_lokasi) VALUES('', '$username', '$password', '$username', '$nama_perusahaan', '$telepon_perusahaan', $id_lokasi)");
+    mysqli_query($conn, "INSERT INTO perusahaan(username_perusahaan, password_perusahaan, email_perusahaan, nama_perusahaan, telepon_perusahaan, id_lokasi) VALUES('$username', '$password', '$username', '$nama_perusahaan', '$telepon_perusahaan', $id_lokasi)");
 
     return mysqli_affected_rows($conn);
 }

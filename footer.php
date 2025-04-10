@@ -16,7 +16,7 @@ $jumlahPerusahaan = query("SELECT count(*) FROM perusahaan")[0];
                             <div class="footer-tittle">
                                 <h4>Tentang Kami</h4>
                                 <div class="footer-pera">
-                                    <p>Kami adalah platform yang bertujuan untuk memudahkan pencarian pekerjaan di Bandung. Dengan visi kami untuk menciptakan kesempatan kerja yang lebih baik bagi masyarakat, kami menyediakan berbagai lowongan pekerjaan menarik dari perusahaan-perusahaan terkemuka di Bandung dan sekitarnya.</p>
+                                    <p>Kami adalah platform yang bertujuan untuk memudahkan pencarian pekerjaan di Solo Raya. Dengan visi kami untuk menciptakan kesempatan kerja yang lebih baik bagi masyarakat, kami menyediakan berbagai lowongan pekerjaan menarik dari perusahaan-perusahaan terkemuka di Solo Raya dan sekitarnya.</p>
                                 </div>
                             </div>
                         </div>
@@ -29,11 +29,11 @@ $jumlahPerusahaan = query("SELECT count(*) FROM perusahaan")[0];
                             <h4>Info Kontak</h4>
                             <ul>
                                 <li>
-                                    <p>Alamat : Jl. Dr. Setiabudhi No. 229 Bandung 40154. Jawa Barat - Indonesia</p>
+                                    <p>Alamat : Jl. Adi Sucipto No.38, Kerten, Kec. Laweyan, Kota Surakarta, Jawa Tengah 57143 - Indonesia</p>
                                 </li>
-                                <li><a href="#">Telepon : +62 81233456789</a></li>
-                                <li><a href="#">Email : ingfoloker@upi.edu</a></li>
-                                <li><a href="#">Instagram : ingfolokerbdg</a></li>
+                                <li><a href="tel:+6287760536345">Telepon : +62 87760536345</a></li>
+                                <li><a href="kurnyawandanuar@gmail.com">Email : kurnyawandanuar@gmail.com</a></li>
+                                <li><a href="https://www.instagram.com/danuarilham/?hl=id">Instagram : danuarilham</a></li>
                             </ul>
                         </div>
 
@@ -76,22 +76,15 @@ $jumlahPerusahaan = query("SELECT count(*) FROM perusahaan")[0];
                 <div class="row d-flex justify-content-between align-items-center">
                     <div class="col-xl-10 col-lg-10 ">
                         <div class="footer-copy-right">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                             <p>
-                                Developed by <a href="https://github.com/boyaditya" target="_blank">@boyaditya</a>
+                                Developed by <a href="https://github.com/danuarilham" target="_blank">@danuarilham</a>
                             </p>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-2">
                         <div class="footer-social f-right">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fas fa-globe"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="https://www.facebook.com/danuar.kurnyawan"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/yohanes_1945"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
                 </div>
